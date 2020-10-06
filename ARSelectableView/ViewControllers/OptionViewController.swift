@@ -12,6 +12,8 @@ class OptionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
 
     @IBAction func optionButtonAction(_ sender: Any) {
@@ -47,6 +49,8 @@ class OptionViewController: UIViewController {
 
         let controller = ARSelectionViewController()
         controller.selectionType = type
+        controller.alignment = ARSelectionAlignment.left
+        controller.scrollDirection = .vertical
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

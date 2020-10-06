@@ -14,7 +14,9 @@ class ARSelectionViewController: UIViewController {
     private let height = UIScreen.main.bounds.size.height
 
     //MARK: - Declared Variables
-    var selectionType: ARSelectionType?
+    var selectionType = ARSelectionType.radio
+    var alignment = ARSelectionAlignment.left
+    var scrollDirection = UICollectionView.ScrollDirection.vertical
     fileprivate var selectionView: ARSelectionView?
 
     //MARK: - ViewLifeCycle
@@ -43,11 +45,20 @@ class ARSelectionViewController: UIViewController {
             self.selectionView?.defaultCellBGColor = UIColor.lightGray.withAlphaComponent(0.3)
         }
         else {
-            self.selectionView?.options = ARSelectionView.Options(sectionInset: UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0), scrollDirection: .vertical)
+            self.selectionView?.options = ARSelectionView.Options(sectionInset: UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 0), scrollDirection: self.scrollDirection)
         }
 
-        self.selectionView?.selectionType = self.selectionType ?? .radio
-        self.selectionView?.items = self.getItems()
+        self.selectionView?.alignment = self.alignment
+        self.selectionView?.selectionType = self.selectionType
+        self.view.layoutIfNeeded()
+
+        let items = self.getItems()
+        let chunkeditems = items.chunked(into: Int(height/self.selectionView!.rowHeight))
+        for insa in chunkeditems {
+            let maxHeight = (insa.map { $0.width }.max() ?? width/2) + ARSelectableCell.extraSpace
+            insa.forEach {$0.width = maxHeight }
+        }
+        self.selectionView?.items = items
     }
 
     func getItems() -> [ARSelectModel] {

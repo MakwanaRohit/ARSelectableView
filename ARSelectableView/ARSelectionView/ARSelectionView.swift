@@ -59,7 +59,7 @@ final class ARSelectionView: UIView {
         }
     }
 
-    public var alignment : ARSelectionAlignment = ARSelectionAlignment.left {
+    public var alignment: ARSelectionAlignment = ARSelectionAlignment.left {
         didSet {
             self.collectionView.reloadData()
         }
@@ -177,7 +177,7 @@ extension ARSelectionView: UICollectionViewDelegate, UICollectionViewDataSource 
         if let cell = collectionView.dequeueCell(ARSelectableCell.self, indexpath: indexPath) {
 
             cell.delegate = self
-            if self.alignment == .right {
+            if self.alignment == .right && self.selectionType == .checkbox && self.options?.scrollDirection == .vertical {
                 cell.alignment = self.alignment
             }
 
@@ -230,7 +230,12 @@ extension ARSelectionView: UICollectionViewDelegateFlowLayout {
             return CGSize(width: size.width, height: self.rowHeight)
         }
         else {
-            return CGSize(width: self.frame.width, height: self.rowHeight)
+            if self.options?.scrollDirection == .horizontal {
+                return CGSize(width: self.items[indexPath.row].width, height: self.rowHeight)
+            }
+            else {
+                return CGSize(width: self.frame.width, height: self.rowHeight)
+            }
         }
     }
 }

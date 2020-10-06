@@ -27,6 +27,9 @@ class ARSelectableCell: UICollectionViewCell {
         return self.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     }
 
+    static let extraSpace: CGFloat = 55
+    static let titleFont = UIFont.systemFont(ofSize : 15)
+
     public var selectedButtonColor : UIColor = .black
     public var defaultButtonColor : UIColor = .black
     public var selectedTitleColor : UIColor = .black
@@ -75,7 +78,7 @@ class ARSelectableCell: UICollectionViewCell {
         let label             = UILabel(frame: CGRect())
         label.textAlignment   = .left
         label.textColor       = .black
-        label.font            = UIFont.systemFont(ofSize : 15)
+        label.font            = ARSelectableCell.titleFont
         label.backgroundColor = .clear
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
