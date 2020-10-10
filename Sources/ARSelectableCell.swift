@@ -8,14 +8,6 @@
 
 import UIKit
 
-struct ARColor {
-    var selectedBackgroundColor: UIColor = UIColor.black
-    var defaultBackgroundColor: UIColor = UIColor.blue
-    var selectedTextColor: UIColor = UIColor.black
-    var defaultTextColor: UIColor = UIColor.blue
-    var buttonTintColor : UIColor = UIColor.black
-}
-
 protocol ARSelectionDelegate: AnyObject {
     func ARSelectionAction(_ selectItem: ARSelectModel)
 }
@@ -41,13 +33,7 @@ class ARSelectableCell: UICollectionViewCell {
     var alignment : ARSelectionAlignment = ARSelectionAlignment.left {
         didSet {
             if self.stackView.subviews.count > 0 {
-                if alignment == .left {
-                    self.selectButton.removeFromSuperview()
-                    self.titleLabel.removeFromSuperview()
-                    self.stackView.insertArrangedSubview(self.selectButton, at: 0)
-                    self.stackView.insertArrangedSubview(self.titleLabel, at: 1)
-                }
-                else {
+                if alignment == .right {
                     self.selectButton.removeFromSuperview()
                     self.stackView.insertArrangedSubview(self.selectButton, at: 1)
                 }

@@ -17,7 +17,6 @@ public class ARTagFlowLayout: UICollectionViewFlowLayout {
 
         guard let collectionView = collectionView else { return nil }
         guard let attributes = super.layoutAttributesForElements(in: rect) else { return nil }
-
         guard let attributesToReturn =  attributes.map( { $0.copy() } ) as? [UICollectionViewLayoutAttributes] else {
             return nil
         }
@@ -47,6 +46,8 @@ public class ARTagFlowLayout: UICollectionViewFlowLayout {
 
             case .justified:
                 shifFrame(layoutAttribute)
+            case .none:
+                break
             }
         }
         align(attributes: attributesToReturn, alignData: alignData, leftMargin: leftMargin - minimumInteritemSpacing)
@@ -75,6 +76,8 @@ public class ARTagFlowLayout: UICollectionViewFlowLayout {
                     layoutAttribute.frame.origin.x += (collectionView.bounds.size.width - leftMargin - sectionInset.right)
                 }
             }
+        case .none:
+            break
         }
     }
 }

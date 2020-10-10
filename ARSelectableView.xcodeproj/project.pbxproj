@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A0E7A972529FEFD0055BFBE /* OptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E7A962529FEFD0055BFBE /* OptionViewController.swift */; };
 		8A2571B325302ED000EECFA0 /* ARSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2571B025302ED000EECFA0 /* ARSelectableCell.swift */; };
 		8A2571B425302ED000EECFA0 /* ARTagFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2571B125302ED000EECFA0 /* ARTagFlowLayout.swift */; };
 		8A2571B525302ED000EECFA0 /* ARSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2571B225302ED000EECFA0 /* ARSelectionView.swift */; };
@@ -23,7 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8A0E7A962529FEFD0055BFBE /* OptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionViewController.swift; sourceTree = "<group>"; };
 		8A2571B025302ED000EECFA0 /* ARSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectableCell.swift; sourceTree = "<group>"; };
 		8A2571B125302ED000EECFA0 /* ARTagFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTagFlowLayout.swift; sourceTree = "<group>"; };
 		8A2571B225302ED000EECFA0 /* ARSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionView.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 		8A58EA2F2528B1D000D885D9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8A0E7A962529FEFD0055BFBE /* OptionViewController.swift */,
 				8A58EA262528AB9800D885D9 /* ARSelectionViewController.swift */,
 			);
 			path = ViewControllers;
@@ -190,7 +187,6 @@
 				8AEF0668252AD2BF006441A4 /* ARHelper.swift in Sources */,
 				8A58EA132528AA9E00D885D9 /* AppDelegate.swift in Sources */,
 				8A58EA2D2528B00600D885D9 /* Extension.swift in Sources */,
-				8A0E7A972529FEFD0055BFBE /* OptionViewController.swift in Sources */,
 				8AEF066B252AD4F8006441A4 /* ARSelectModel.swift in Sources */,
 				8A58EA152528AA9E00D885D9 /* SceneDelegate.swift in Sources */,
 			);

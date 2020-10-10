@@ -38,11 +38,31 @@ enum ARSelectionType {
             return #imageLiteral(resourceName: "checked_checkbox")
         }
     }
+
+    var title: String {
+        switch self {
+        case .radio:
+            return "Radio"
+        case .checkbox:
+             return "Checkbox"
+        case .tags:
+             return "Tags"
+        }
+    }
 }
 
 enum ARSelectionAlignment {
     case left
     case right
+
+    var title: String {
+        switch self {
+        case .left:
+            return "Left"
+        case .right:
+             return "Right"
+        }
+    }
 }
 
 extension ARSelectionView.Options {
@@ -51,5 +71,21 @@ extension ARSelectionView.Options {
         case left
         case center
         case right
+        case none
+    }
+}
+
+enum ARScrollDirection {
+
+    case vertical
+    case horizontal
+
+    var title: String {
+        switch self {
+        case .vertical:
+            return "Vertical"
+        case .horizontal:
+             return "Horizontal"
+        }
     }
 }

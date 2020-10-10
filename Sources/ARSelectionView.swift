@@ -11,55 +11,18 @@ import UIKit
 final class ARSelectionView: UIView {
 
     // MARK: - Declared Variables
-    fileprivate let DEFAULT_LINE_SPACING: CGFloat = 10.0
-    fileprivate let DEFAULT_INTERITEM_SPACING : CGFloat = 10.0
-
-    private let tagLayout = ARTagFlowLayout()
+    static let DEFAULT_LINE_SPACING: CGFloat = 0
+    static let DEFAULT_INTERITEM_SPACING : CGFloat = 0
     private var reseource: (cell: ARSelectableCell?, identifier: String)?
+    public var defaultButtonColor: UIColor?
+    public var selectedButtonColor: UIColor?
+    public var defaultTitleColor: UIColor?
+    public var selectedTitleColor: UIColor?
+    public var defaultCellBGColor: UIColor?
+    public var selectedCellBGColor: UIColor?
+    public var rowHeight : CGFloat = 35
 
-    public var defaultButtonColor: UIColor? {
-        didSet {
-            self.collectionView.reloadData()
-        }
-    }
-
-    public var selectedButtonColor: UIColor? {
-        didSet {
-            self.collectionView.reloadData()
-        }
-    }
-
-    public var defaultTitleColor: UIColor? {
-        didSet {
-            self.collectionView.reloadData()
-        }
-    }
-
-    public var selectedTitleColor: UIColor? {
-        didSet {
-            self.collectionView.reloadData()
-        }
-    }
-
-    public var defaultCellBGColor: UIColor? {
-        didSet {
-            self.collectionView.reloadData()
-        }
-    }
-
-    public var selectedCellBGColor: UIColor? {
-        didSet {
-            self.collectionView.reloadData()
-        }
-    }
-
-    public var rowHeight : CGFloat = 25 {
-        didSet {
-            self.collectionView.reloadData()
-        }
-    }
-
-    public var alignment: ARSelectionAlignment = ARSelectionAlignment.left {
+    public var alignment: ARSelectionAlignment? {
         didSet {
             self.collectionView.reloadData()
         }
@@ -67,45 +30,35 @@ final class ARSelectionView: UIView {
 
     public var selectionType : ARSelectionType = ARSelectionType.radio {
         didSet {
-            if selectionType == .tags {
-                tagLayout.sectionInset = self.options?.sectionInset ?? UIEdgeInsets.init(top: 5, left: 5, bottom: 5, right: 5)
-                tagLayout.minimumInteritemSpacing = options?.interitemSpacing ?? DEFAULT_INTERITEM_SPACING
-                tagLayout.minimumLineSpacing = options?.lineSpacing ?? DEFAULT_LINE_SPACING
-                tagLayout.scrollDirection = options?.scrollDirection ?? .vertical
-                self.collectionView.collectionViewLayout = self.tagLayout
-            }
 
+            let tagLayout = ARTagFlowLayout()
+            tagLayout.sectionInset = self.options?.sectionInset ?? UIEdgeInsets.init(top: 5, left: 5, bottom: 5, right: 5)
+            tagLayout.minimumInteritemSpacing = options?.interitemSpacing ?? ARSelectionView.DEFAULT_INTERITEM_SPACING
+            tagLayout.minimumLineSpacing = options?.lineSpacing ?? ARSelectionView.DEFAULT_LINE_SPACING
+            tagLayout.scrollDirection = options?.scrollDirection ?? .vertical
+            if selectionType == .tags {
+                tagLayout.align = self.alignment == .right ? .right : .left
+            }
+            else {
+                tagLayout.align = .none
+            }
+            self.collectionView.collectionViewLayout = tagLayout
+            self.items.forEach { $0.selectionType = self.selectionType }
             self.collectionView.reloadData()
         }
     }
 
-    fileprivate let defaultLayout: UICollectionViewFlowLayout = {
-        let _layout = UICollectionViewFlowLayout()
-        _layout.scrollDirection = .horizontal
-        return _layout
-    }()
-
-    fileprivate let collectionView: UICollectionView = {
-        let _layout = UICollectionViewFlowLayout()
-        _layout.scrollDirection = .vertical
-        let cv = UICollectionView(frame: CGRect(), collectionViewLayout: _layout)
+    fileprivate lazy var collectionView: UICollectionView = {
+        let cv = UICollectionView(frame: CGRect(), collectionViewLayout: UICollectionViewFlowLayout())
         cv.showsHorizontalScrollIndicator = false
         cv.showsVerticalScrollIndicator = false
+        cv.bounces = false
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(ARSelectableCell.self, forCellWithReuseIdentifier: String(describing: ARSelectableCell.self))
         return cv
     }()
 
-    public var options: ARSelectionView.Options? {
-        didSet {
-            guard let options = options else { return }
-            defaultLayout.sectionInset = options.sectionInset
-            defaultLayout.minimumInteritemSpacing = options.interitemSpacing
-            defaultLayout.minimumLineSpacing = options.lineSpacing
-            defaultLayout.scrollDirection = options.scrollDirection
-            self.collectionView.collectionViewLayout = self.defaultLayout
-        }
-    }
+    public var options: ARSelectionView.Options?
 
     var items: [ARSelectModel] = [] {
         didSet {
@@ -177,8 +130,8 @@ extension ARSelectionView: UICollectionViewDelegate, UICollectionViewDataSource 
         if let cell = collectionView.dequeueCell(ARSelectableCell.self, indexpath: indexPath) {
 
             cell.delegate = self
-            if self.alignment == .right && self.selectionType == .checkbox && self.options?.scrollDirection == .vertical {
-                cell.alignment = self.alignment
+            if let alignment = self.alignment, alignment == .right, self.selectionType != .tags {
+                cell.alignment = alignment
             }
 
             if let color = self.selectedButtonColor {
@@ -258,8 +211,8 @@ extension ARSelectionView {
         public let scrollDirection : UICollectionView.ScrollDirection
 
         public init(sectionInset: UIEdgeInsets = .zero,
-                    lineSpacing: CGFloat = 10.0,
-                    interitemSpacing: CGFloat = 10.0,
+                    lineSpacing: CGFloat = ARSelectionView.DEFAULT_LINE_SPACING,
+                    interitemSpacing: CGFloat = ARSelectionView.DEFAULT_INTERITEM_SPACING,
                     scrollDirection: UICollectionView.ScrollDirection = .horizontal) {
 
             self.sectionInset = sectionInset
