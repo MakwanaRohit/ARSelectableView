@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SCg-Di-I4h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uV6-4e-sds">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,7 +8,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Selection View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="ILy-PA-386">
+            <objects>
+                <navigationController id="uV6-4e-sds" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lH3-dj-Ja3">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="SCg-Di-I4h" kind="relationship" relationship="rootViewController" id="MJx-nu-S8S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="msV-QG-tCa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2577" y="87"/>
+        </scene>
+        <!--Selection-->
         <scene sceneID="Cnx-nq-k9L">
             <objects>
                 <viewController storyboardIdentifier="ARSelectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SCg-Di-I4h" customClass="ARSelectionViewController" customModule="ARSelectableView" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,7 +50,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="g8v-AJ-Mmd">
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="g8v-AJ-Mmd">
                                                         <rect key="frame" x="132" y="0.0" width="242" height="36"/>
                                                         <color key="backgroundColor" red="0.0039215686269999999" green="0.37647058820000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -61,15 +77,15 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="u0g-NE-xa4">
-                                                        <rect key="frame" x="271" y="0.0" width="103" height="36"/>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="u0g-NE-xa4">
+                                                        <rect key="frame" x="213" y="0.0" width="161" height="36"/>
                                                         <color key="backgroundColor" red="0.0039215686269999999" green="0.37647058820000001" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="35" id="4Hj-Ck-m5O"/>
                                                         </constraints>
                                                         <segments>
-                                                            <segment title="Left"/>
-                                                            <segment title="Right"/>
+                                                            <segment title="Left" width="80"/>
+                                                            <segment title="Right" width="80"/>
                                                         </segments>
                                                         <color key="tintColor" red="0.086274509799999996" green="0.74901960779999999" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                                         <connections>
@@ -124,15 +140,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bgx-HA-v5E"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Selection" id="wa1-Wq-hR2"/>
                     <connections>
                         <outlet property="alignmentSegment" destination="u0g-NE-xa4" id="kWW-NH-61U"/>
+                        <outlet property="buttonsView" destination="dcI-Yu-pvq" id="dHm-6g-MFa"/>
                         <outlet property="directionSegment" destination="KEZ-zg-uKL" id="REQ-8I-FMz"/>
                         <outlet property="selectionTypeSegment" destination="g8v-AJ-Mmd" id="Dbf-8K-8UT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYf-8E-Dcg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2745" y="89"/>
+            <point key="canvasLocation" x="-1836.2318840579712" y="88.392857142857139"/>
         </scene>
     </scenes>
 </document>

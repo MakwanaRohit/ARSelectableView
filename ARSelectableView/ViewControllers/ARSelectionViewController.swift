@@ -14,38 +14,70 @@ let height = UIScreen.main.bounds.size.height
 class ARSelectionViewController: UIViewController {
 
     //MARK: - IBOutlets
+
+    @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var selectionTypeSegment: UISegmentedControl!
     @IBOutlet weak var alignmentSegment: UISegmentedControl!
     @IBOutlet weak var directionSegment: UISegmentedControl!
 
     //MARK: - Declared Variables
+
+    let musics = ["Blues Music", "Jazz Music", "Rock and Roll Music", "Soul Music",
+                 "Dance Music", "Hip Hop Music", "Rhythm and Blues Music", "Country Music",
+                 "Rock Music", "Blues Music", "Jazz Music", "Rhythm and Blues Music",
+                 "Rock and Roll Music", "Soul Music", "Rock Music", "Country Music",
+                 "Blues Music", "Jazz Music", "Rhythm and Blues Music", "Rock Music",
+                 "Rock and Roll Music", "Rock Music", "Country Music", "Soul Music",
+                 "Dance Music", "Hip Hop Music", "Dance Music","Hip Hop Music"]
+
     fileprivate var selectionView: ARSelectionView?
     var alignment: ARSelectionAlignment = ARSelectionAlignment.left {
         willSet {
             if newValue != self.alignment {
                 DispatchQueue.main.async {
-                    self.setSelectionViewOptions(self.currentSelectionType)
+                    self.selectionView?.alignment = newValue
                 }
             }
         }
     }
 
-    var currentSelectionType: ARSelectionType = ARSelectionType.radio {
+    var currentSelectionType: ARSelectionType? {
         willSet {
             if newValue != self.currentSelectionType {
                 self.navigationItem.leftBarButtonItem?.isEnabled = newValue != .tags
                 DispatchQueue.main.async {
-                    self.setSelectionViewOptions(self.currentSelectionType)
+                    if newValue == ARSelectionType.tags {
+                        var designOption = ARCellDesignOptions()
+                        designOption.defaultCellBGColor = UIColor.lightGray.withAlphaComponent(0.3)
+                        designOption.selectedTitleColor = .white
+                        designOption.selectedCellBGColor = .black
+                        designOption.selectedButtonColor = .white
+                        designOption.rowHeight = 40
+                        designOption.cornerRadius = 5
+                        self.selectionView?.cellDesignOptions = designOption
+                        self.selectionView?.options = ARCollectionLayoutOptions(sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),lineSpacing: 10, interitemSpacing: 10, scrollDirection: .vertical)
+                    }
+                    else {
+                        self.selectionView?.items.forEach {$0.isSelected = false}
+                        self.selectionView?.cellDesignOptions = ARCellDesignOptions()
+                        self.selectionView?.options = ARCollectionLayoutOptions(scrollDirection: self.scrollDirection == .vertical ? .vertical: .horizontal)
+                    }
+                    self.selectionView?.selectionType = newValue
                 }
             }
         }
     }
 
-    var scrollDirection = ARScrollDirection.vertical {
+    var scrollDirection = UICollectionView.ScrollDirection.vertical {
         willSet {
             if newValue != self.scrollDirection {
                 DispatchQueue.main.async {
-                    self.setSelectionViewOptions(self.currentSelectionType)
+                    if self.currentSelectionType == .tags {
+                        self.selectionView?.options = ARCollectionLayoutOptions(sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),lineSpacing: 10, interitemSpacing: 10, scrollDirection: .vertical)
+                    }
+                    else {
+                        self.selectionView?.options = ARCollectionLayoutOptions(scrollDirection: newValue)
+                    }
                 }
             }
         }
@@ -57,7 +89,10 @@ class ARSelectionViewController: UIViewController {
 
         self.view.backgroundColor = UIColor(red: 250.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1)
         self.title = "Selection"
-        self.setSelectionViewOptions()
+
+        self.addSelectionView()
+        self.currentSelectionType = .radio
+        self.setDummyData()
     }
 
     //MARK: - Design Layout
@@ -68,37 +103,23 @@ class ARSelectionViewController: UIViewController {
         self.view.addSubview(self.selectionView!)
 
         self.selectionView?.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([self.selectionView!.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-                                     self.selectionView!.leftAnchor.constraint(equalTo: view.leftAnchor),
-                                     self.selectionView!.rightAnchor.constraint(equalTo: view.rightAnchor),
-                                     self.selectionView!.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.height/2)])
+        NSLayoutConstraint.activate([
+            self.selectionView!.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            self.selectionView!.leftAnchor.constraint(equalTo: view.leftAnchor),
+            self.selectionView!.rightAnchor.constraint(equalTo: view.rightAnchor),
+            self.buttonsView!.topAnchor.constraint(equalTo: self.selectionView!.bottomAnchor),
+        ])
+        self.view.layoutIfNeeded()
     }
 
-    fileprivate func setSelectionViewOptions(_ selectionType: ARSelectionType = ARSelectionType.radio) {
+    //MARK: - Dummy Data
+    func setDummyData() {
 
-        self.addSelectionView()
-        self.view.layoutIfNeeded()
-
-        if selectionType == ARSelectionType.tags {
-            var designOption = ARCellDesignOptions()
-            designOption.defaultCellBGColor = UIColor.lightGray.withAlphaComponent(0.3)
-            designOption.selectedTitleColor = .white
-            designOption.selectedCellBGColor = .black
-            designOption.selectedButtonColor = .white
-            designOption.rowHeight = 40
-            designOption.cornerRadius = 5
-            self.selectionView?.cellDesignOptions = designOption
-            self.selectionView?.options = ARCollectionLayoutOptions(sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),lineSpacing: 10, interitemSpacing: 10, scrollDirection: .vertical)
+        var items = [ARSelectModel]()
+        for music in musics {
+            items.append(ARSelectModel(title: music))
         }
-        else {
-            self.selectionView?.cellDesignOptions = ARCellDesignOptions()
-            self.selectionView?.options = ARCollectionLayoutOptions(scrollDirection: self.scrollDirection == .vertical ? .vertical: .horizontal)
-        }
-        
-        self.selectionView?.alignment = self.alignment
-        self.selectionView?.selectionType = selectionType
 
-        let items = self.getDummyItems()
         let chunkeditems = items.chunked(into: Int((self.selectionView?.frame.height)! / (self.selectionView?.cellDesignOptions.rowHeight)!))
         for insa in chunkeditems {
             let maxHeight = (insa.map { $0.width }.max() ?? width/2) + ARSelectableCell.extraSpace
@@ -110,84 +131,45 @@ class ARSelectionViewController: UIViewController {
         }
     }
 
-    //MARK: - Static Data
-    func getDummyItems() -> [ARSelectModel] {
-
-        return [ARSelectModel(title: "Blues Music"),
-                ARSelectModel(title: "Jazz Music"),
-                ARSelectModel(title: "Country Music"),
-                ARSelectModel(title: "Soul Music"),
-                ARSelectModel(title: "Dance Music"),
-                ARSelectModel(title: "Hip Hop Music"),
-                ARSelectModel(title: "Rhythm and Blues Music"),
-                ARSelectModel(title: "Rock and Roll Music"),
-                ARSelectModel(title: "Rock Music"),
-                ARSelectModel(title: "Blues Music"),
-                ARSelectModel(title: "Jazz Music"),
-                ARSelectModel(title: "Rhythm and Blues Music"),
-                ARSelectModel(title: "Soul Music"),
-                ARSelectModel(title: "Rock and Roll Music"),
-                ARSelectModel(title: "Rock Music"),
-                ARSelectModel(title: "Country Music"),
-                ARSelectModel(title: "Blues Music"),
-                ARSelectModel(title: "Jazz Music"),
-                ARSelectModel(title: "Rhythm and Blues Music"),
-                ARSelectModel(title: "Rock and Roll Music"),
-                ARSelectModel(title: "Rock Music"),
-                ARSelectModel(title: "Country Music"),
-                ARSelectModel(title: "Soul Music"),
-                ARSelectModel(title: "Dance Music"),
-                ARSelectModel(title: "Hip Hop Music"),
-                ARSelectModel(title: "Dance Music"),
-                ARSelectModel(title: "Hip Hop Music")]
+    //MARK: - Show Selection Alert
+    private func showSelectionAlert() {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "", message: "This selection type not supported horizontal scroll direction", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
+
 //MARK: - Segment IBAction
-
 extension ARSelectionViewController {
-    
-    @IBAction func selectionTypeValueChanged(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            self.currentSelectionType = .radio
-        }
-        else if sender.selectedSegmentIndex == 1 {
-            self.currentSelectionType = .checkbox
-        }
-        else {
-            self.currentSelectionType = .tags
-        }
-        
-        self.setSelectionViewOptions(self.currentSelectionType)
-    }
-    
-    @IBAction func alignmentValueChanged(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            self.alignment = .left
-        }
-        else if sender.selectedSegmentIndex == 1 {
-            self.alignment = .right
-        }
-        self.setSelectionViewOptions(self.currentSelectionType)
-    }
-    
-    @IBAction func directionValueChanged(_ sender: UISegmentedControl) {
 
-        if self.selectionTypeSegment.selectedSegmentIndex == 2 {
-            self.directionSegment.selectedSegmentIndex = 0
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: "", message: "This selection type not supported horizontal scroll direction", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-        else {
-            if sender.selectedSegmentIndex == 0 {
-                self.scrollDirection = .vertical
+    @IBAction func selectionTypeValueChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 2 {
+            if self.directionSegment.selectedSegmentIndex == 1 {
+                self.showSelectionAlert()
+                sender.selectedSegmentIndex =  self.currentSelectionType?.rawValue ?? 0
             }
             else {
-                self.scrollDirection = .horizontal
+                self.currentSelectionType = .tags
             }
-            self.setSelectionViewOptions(self.currentSelectionType)
+        }
+        else {
+            self.currentSelectionType = sender.selectedSegmentIndex == 0 ? .radio : .checkbox
+        }
+    }
+
+    @IBAction func alignmentValueChanged(_ sender: UISegmentedControl) {
+        self.alignment = sender.selectedSegmentIndex == 0 ? .left : .right
+    }
+
+    @IBAction func directionValueChanged(_ sender: UISegmentedControl) {
+        if self.selectionTypeSegment.selectedSegmentIndex == 2 {
+            self.directionSegment.selectedSegmentIndex = 0
+            self.showSelectionAlert()
+        }
+        else {
+            self.scrollDirection = sender.selectedSegmentIndex == 0 ? .vertical : .horizontal
         }
     }
 }

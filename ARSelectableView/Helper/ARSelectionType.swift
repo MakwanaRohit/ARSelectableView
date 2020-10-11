@@ -1,5 +1,5 @@
 //
-//  ARHelper.swift
+//  ARSelectionType.swift
 //  ARSelectableView
 //
 //  Created by Rohit Makwana on 05/10/20.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-enum ARSelectionType {
+enum ARSelectionType: Int {
+
     case radio
     case checkbox
     case tags
@@ -30,29 +31,4 @@ enum ARSelectionType {
             return #imageLiteral(resourceName: "checked_checkbox")
         }
     }
-}
-
-enum ARSelectionAlignment {
-    case left
-    case right
-    case none
-}
-
-enum ARScrollDirection {
-
-    case vertical
-    case horizontal
-}
-
-struct ARCellDesignOptions {
-
-    public var selectedButtonColor : UIColor = .black
-    public var defaultButtonColor : UIColor = .black
-    public var selectedTitleColor : UIColor = .black
-    public var defaultTitleColor : UIColor = .black
-    public var selectedCellBGColor : UIColor = .white
-    public var defaultCellBGColor : UIColor = .white
-    public var rowHeight : CGFloat = 35
-    public var isShowButton : Bool = true
-    public var cornerRadius : CGFloat = 0
 }

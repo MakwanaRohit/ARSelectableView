@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 protocol ARSelectionDelegate: AnyObject {
     func ARSelectionAction(_ selectItem: ARSelectModel)
 }
@@ -22,15 +23,21 @@ class ARSelectableCell: UICollectionViewCell {
     static let extraSpace: CGFloat = 55
     static let titleFont = UIFont.systemFont(ofSize : 15)
     fileprivate var selectItem: ARSelectModel?
-
     weak var delegate :ARSelectionDelegate?
+    
     var alignment : ARSelectionAlignment = ARSelectionAlignment.left {
         didSet {
-            if self.stackView.subviews.count > 0 {
-                if alignment == .right {
-                    self.selectButton.removeFromSuperview()
-                    self.stackView.insertArrangedSubview(self.selectButton, at: 1)
-                }
+
+            self.selectButton.removeFromSuperview()
+            self.titleLabel.removeFromSuperview()
+
+            if alignment == .right {
+                self.stackView.addArrangedSubview(self.titleLabel)
+                self.stackView.addArrangedSubview(self.selectButton)
+            }
+            else {
+                self.stackView.addArrangedSubview(self.selectButton)
+                self.stackView.addArrangedSubview(self.titleLabel)
             }
             self.stackView.setNeedsDisplay()
             self.stackView.layoutIfNeeded()
@@ -64,7 +71,6 @@ class ARSelectableCell: UICollectionViewCell {
         label.numberOfLines = 1
         return label
     }()
-
 
     // MARK: - Init Variables
     override init(frame: CGRect) {
@@ -101,6 +107,7 @@ class ARSelectableCell: UICollectionViewCell {
         self.delegate?.ARSelectionAction(self.selectItem!)
     }
 
+    // MARK: - Confige Cell
     func configeCell(_ selectItem: ARSelectModel?, designOptions: ARCellDesignOptions? = ARCellDesignOptions()) {
 
         if let select = selectItem, let options = designOptions {

@@ -15,24 +15,43 @@ final class ARSelectionView: UIView {
     static let DEFAULT_INTERITEM_SPACING : CGFloat = 0
     private var reseource: (cell: ARSelectableCell?, identifier: String)?
     public var cellDesignOptions = ARCellDesignOptions()
-    public var options: ARCollectionLayoutOptions?
-    public var alignment: ARSelectionAlignment?
+    public lazy var tagLayout = ARTagFlowLayout()
 
-    public var selectionType : ARSelectionType = ARSelectionType.radio {
+    public var options: ARCollectionLayoutOptions = ARCollectionLayoutOptions() {
+        didSet{
+            tagLayout.sectionInset = self.options.sectionInset
+            tagLayout.minimumInteritemSpacing = options.interitemSpacing
+            tagLayout.minimumLineSpacing = options.lineSpacing
+            tagLayout.scrollDirection = options.scrollDirection
+            if selectionType == .tags && options.scrollDirection != .horizontal {
+                tagLayout.align = self.alignment == .right ? .right : .left
+            }
+            else {
+                tagLayout.align = .none
+            }
+
+            self.collectionView.collectionViewLayout = tagLayout
+            self.collectionView.reloadData()
+        }
+    }
+
+    public var alignment: ARSelectionAlignment? = .left {
+        didSet {
+            if selectionType == .tags && options.scrollDirection != .horizontal {
+                tagLayout.align = self.alignment == .right ? .right : .left
+            }
+            else {
+                tagLayout.align = .none
+            }
+            self.collectionView.reloadData()
+        }
+    }
+
+    public var selectionType : ARSelectionType? {
         didSet {
 
-            let tagLayout = ARTagFlowLayout()
-            tagLayout.sectionInset = self.options?.sectionInset ?? UIEdgeInsets.init(top: 5, left: 5, bottom: 5, right: 5)
-            tagLayout.minimumInteritemSpacing = options?.interitemSpacing ?? ARSelectionView.DEFAULT_INTERITEM_SPACING
-            tagLayout.minimumLineSpacing = options?.lineSpacing ?? ARSelectionView.DEFAULT_LINE_SPACING
-            tagLayout.scrollDirection = options?.scrollDirection ?? .vertical
-            if selectionType == .tags {
-                if options?.scrollDirection == .horizontal {
-                    tagLayout.align = .none
-                }
-                else {
-                    tagLayout.align = self.alignment == .right ? .right : .left
-                }
+            if selectionType == .tags && options.scrollDirection != .horizontal {
+                tagLayout.align = self.alignment == .right ? .right : .left
             }
             else {
                 tagLayout.align = .none
@@ -53,7 +72,6 @@ final class ARSelectionView: UIView {
         return cv
     }()
 
-
     var items: [ARSelectModel] = [] {
         didSet {
             self.items.forEach { $0.selectionType = self.selectionType }
@@ -65,19 +83,16 @@ final class ARSelectionView: UIView {
     // MARK: - Init Methods
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         self.addViews()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-
         self.addViews()
         fatalError("init(coder:) has not been implemented")
     }
 
     fileprivate func addViews() {
-
         self.setupCollectionView()
     }
 
@@ -90,7 +105,6 @@ final class ARSelectionView: UIView {
         collectionView.dataSource = self
 
         self.reseource = (cell: ARSelectableCell(), String(describing: ARSelectableCell.self))
-
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([collectionView.topAnchor.constraint(equalTo: topAnchor),
                                      collectionView.leftAnchor.constraint(equalTo: leftAnchor),
@@ -124,9 +138,7 @@ extension ARSelectionView: UICollectionViewDelegate, UICollectionViewDataSource 
         if let cell = collectionView.dequeueCell(ARSelectableCell.self, indexpath: indexPath) {
 
             cell.delegate = self
-            if let alignment = self.alignment, alignment == .right, self.selectionType != .tags {
-                cell.alignment = alignment
-            }
+            cell.alignment = self.alignment ?? .left
             cell.configeCell(self.items[indexPath.row], designOptions: self.cellDesignOptions)
             cell.layoutIfNeeded()
             return cell
@@ -152,7 +164,7 @@ extension ARSelectionView: UICollectionViewDelegateFlowLayout {
             return CGSize(width: size.width, height: self.cellDesignOptions.rowHeight)
         }
         else {
-            if self.options?.scrollDirection == .horizontal {
+            if self.options.scrollDirection == .horizontal {
                 return CGSize(width: self.items[indexPath.row].width, height: self.cellDesignOptions.rowHeight)
             }
             else {
@@ -167,23 +179,5 @@ extension ARSelectionView: ARSelectionDelegate {
 
     func ARSelectionAction(_ selectItem: ARSelectModel) {
         self.updateSelection(selectItem)
-    }
-}
-
-struct ARCollectionLayoutOptions {
-    public let sectionInset: UIEdgeInsets
-    public let lineSpacing: CGFloat
-    public let interitemSpacing: CGFloat
-    public let scrollDirection : UICollectionView.ScrollDirection
-
-    public init(sectionInset: UIEdgeInsets = .zero,
-                lineSpacing: CGFloat = ARSelectionView.DEFAULT_LINE_SPACING,
-                interitemSpacing: CGFloat = ARSelectionView.DEFAULT_INTERITEM_SPACING,
-                scrollDirection: UICollectionView.ScrollDirection = .vertical) {
-
-        self.sectionInset = sectionInset
-        self.lineSpacing = lineSpacing
-        self.interitemSpacing = interitemSpacing
-        self.scrollDirection = scrollDirection
     }
 }

@@ -17,8 +17,10 @@
 		8A58EA1F2528AAA200D885D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A58EA1D2528AAA200D885D9 /* LaunchScreen.storyboard */; };
 		8A58EA272528AB9800D885D9 /* ARSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58EA262528AB9800D885D9 /* ARSelectionViewController.swift */; };
 		8A58EA2D2528B00600D885D9 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58EA2C2528B00600D885D9 /* Extension.swift */; };
-		8AEF0668252AD2BF006441A4 /* ARHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF0667252AD2BF006441A4 /* ARHelper.swift */; };
+		8AEF0668252AD2BF006441A4 /* ARSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF0667252AD2BF006441A4 /* ARSelectionType.swift */; };
 		8AEF066B252AD4F8006441A4 /* ARSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF0669252AD4EA006441A4 /* ARSelectModel.swift */; };
+		8AF4D2B12533328700E17DE3 /* ARCollectionLayoutOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4D2B02533328700E17DE3 /* ARCollectionLayoutOptions.swift */; };
+		8AF4D2B3253332E900E17DE3 /* ARCellDesignOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4D2B2253332E900E17DE3 /* ARCellDesignOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +36,10 @@
 		8A58EA202528AAA200D885D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A58EA262528AB9800D885D9 /* ARSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSelectionViewController.swift; sourceTree = "<group>"; };
 		8A58EA2C2528B00600D885D9 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		8AEF0667252AD2BF006441A4 /* ARHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARHelper.swift; sourceTree = "<group>"; };
+		8AEF0667252AD2BF006441A4 /* ARSelectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSelectionType.swift; sourceTree = "<group>"; };
 		8AEF0669252AD4EA006441A4 /* ARSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSelectModel.swift; sourceTree = "<group>"; };
+		8AF4D2B02533328700E17DE3 /* ARCollectionLayoutOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCollectionLayoutOptions.swift; sourceTree = "<group>"; };
+		8AF4D2B2253332E900E17DE3 /* ARCellDesignOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARCellDesignOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +107,9 @@
 			isa = PBXGroup;
 			children = (
 				8A58EA2C2528B00600D885D9 /* Extension.swift */,
-				8AEF0667252AD2BF006441A4 /* ARHelper.swift */,
+				8AEF0667252AD2BF006441A4 /* ARSelectionType.swift */,
+				8AF4D2B02533328700E17DE3 /* ARCollectionLayoutOptions.swift */,
+				8AF4D2B2253332E900E17DE3 /* ARCellDesignOptions.swift */,
 				8AEF0669252AD4EA006441A4 /* ARSelectModel.swift */,
 			);
 			path = Helper;
@@ -180,11 +186,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF4D2B3253332E900E17DE3 /* ARCellDesignOptions.swift in Sources */,
 				8A2571B425302ED000EECFA0 /* ARTagFlowLayout.swift in Sources */,
+				8AF4D2B12533328700E17DE3 /* ARCollectionLayoutOptions.swift in Sources */,
 				8A2571B325302ED000EECFA0 /* ARSelectableCell.swift in Sources */,
 				8A2571B525302ED000EECFA0 /* ARSelectionView.swift in Sources */,
 				8A58EA272528AB9800D885D9 /* ARSelectionViewController.swift in Sources */,
-				8AEF0668252AD2BF006441A4 /* ARHelper.swift in Sources */,
+				8AEF0668252AD2BF006441A4 /* ARSelectionType.swift in Sources */,
 				8A58EA132528AA9E00D885D9 /* AppDelegate.swift in Sources */,
 				8A58EA2D2528B00600D885D9 /* Extension.swift in Sources */,
 				8AEF066B252AD4F8006441A4 /* ARSelectModel.swift in Sources */,

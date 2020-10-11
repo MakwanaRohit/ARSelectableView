@@ -70,3 +70,9 @@ public class ARTagFlowLayout: UICollectionViewFlowLayout {
         }
     }
 }
+
+enum ARSelectionAlignment {
+    case left
+    case right
+    case none
+}
