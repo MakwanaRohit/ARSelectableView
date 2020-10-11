@@ -98,7 +98,6 @@ class ARSelectionViewController: UIViewController {
     //MARK: - Design Layout
     fileprivate func addSelectionView() {
 
-        self.selectionView?.removeFromSuperview()
         self.selectionView = ARSelectionView(frame: CGRect.zero)
         self.view.addSubview(self.selectionView!)
 

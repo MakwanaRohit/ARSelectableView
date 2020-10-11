@@ -39,13 +39,11 @@ Set selection type
 self.selectionView?.selectionType = .radio 
 ```
 
-Set array for selection of ARSelectModel
-Ex 
+Set items 
 
-let items = [ARSelectModel(title: "Blues Music"),
-                  ARSelectModel(title: "Jazz Music")]
 
 ```swift
+let items = [ARSelectModel(title: "Blues Music"), ARSelectModel(title: "Jazz Music")]
 self.selectionView?.items = items
 ```
 
