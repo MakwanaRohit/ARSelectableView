@@ -21,13 +21,7 @@ class ARSelectableCell: UICollectionViewCell {
 
     static let extraSpace: CGFloat = 55
     static let titleFont = UIFont.systemFont(ofSize : 15)
-
-    public var selectedButtonColor : UIColor = .black
-    public var defaultButtonColor : UIColor = .black
-    public var selectedTitleColor : UIColor = .black
-    public var defaultTitleColor : UIColor = .black
-    public var selectedCellBGColor : UIColor = .white
-    public var defaultCellBGColor : UIColor = .white
+    fileprivate var selectItem: ARSelectModel?
 
     weak var delegate :ARSelectionDelegate?
     var alignment : ARSelectionAlignment = ARSelectionAlignment.left {
@@ -71,26 +65,6 @@ class ARSelectableCell: UICollectionViewCell {
         return label
     }()
 
-    var selectItem: ARSelectModel? {
-        didSet {
-            if let select = self.selectItem {
-                self.titleLabel.text = select.title
-                self.selectButton.setTintImage(select.selectionType!.defaultImage,
-                                               tintColor: self.defaultButtonColor, state: .normal)
-                self.selectButton.setTintImage(select.selectionType!.selectedImage,
-                                               tintColor: self.selectedButtonColor, state: .selected)
-                self.selectButton.isSelected = select.isSelected
-
-                self.backgroundColor = select.isSelected ? selectedCellBGColor : defaultCellBGColor
-                self.titleLabel.textColor = select.isSelected ? selectedTitleColor : defaultTitleColor
-
-                if select.selectionType == .tags {
-                    self.layer.cornerRadius = 5
-                    self.selectButton.isHidden = true
-                }
-            }
-        }
-    }
 
     // MARK: - Init Variables
     override init(frame: CGRect) {
@@ -125,5 +99,23 @@ class ARSelectableCell: UICollectionViewCell {
     // MARK: - UIButton Action
     @objc func selectButtonAction(_ button: UIButton) {
         self.delegate?.ARSelectionAction(self.selectItem!)
+    }
+
+    func configeCell(_ selectItem: ARSelectModel?, designOptions: ARCellDesignOptions? = ARCellDesignOptions()) {
+
+        if let select = selectItem, let options = designOptions {
+            self.selectItem = selectItem
+            self.titleLabel.text = select.title
+
+            self.selectButton.isSelected = select.isSelected
+            self.selectButton.setTintImage(select.isSelected ? select.selectionType!.selectedImage : select.selectionType!.defaultImage,
+                                           tintColor: select.isSelected ? options.selectedButtonColor : options.defaultButtonColor,
+                                           state: select.isSelected ? .selected: .normal)
+
+            self.backgroundColor = select.isSelected ? options.selectedCellBGColor : options.defaultCellBGColor
+            self.titleLabel.textColor = select.isSelected ? options.selectedTitleColor : options.defaultTitleColor
+            self.selectButton.isHidden = !options.isShowButton
+            self.layer.cornerRadius = options.cornerRadius
+        }
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 public class ARTagFlowLayout: UICollectionViewFlowLayout {
 
     typealias AlignType = (lastRow: Int, lastMargin: CGFloat)
-    var align: ARSelectionView.Options.Alignment = .left
+    var align: ARSelectionAlignment = .left
 
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
 
@@ -33,7 +33,7 @@ public class ARTagFlowLayout: UICollectionViewFlowLayout {
 
         attributesToReturn.forEach { layoutAttribute in
             switch align {
-            case .left, .center, .right:
+            case .left, .right:
                 if layoutAttribute.frame.origin.y >= maxY {
                     alignData.append((lastRow: layoutAttribute.indexPath.row, lastMargin: leftMargin - minimumInteritemSpacing))
                     leftMargin = sectionInset.left
@@ -43,9 +43,6 @@ public class ARTagFlowLayout: UICollectionViewFlowLayout {
                 layoutAttribute.frame.origin.x = leftMargin
                 leftMargin += layoutAttribute.frame.width + minimumInteritemSpacing
                 maxY = max(layoutAttribute.frame.maxY , maxY)
-
-            case .justified:
-                shifFrame(layoutAttribute)
             case .none:
                 break
             }
@@ -58,16 +55,8 @@ public class ARTagFlowLayout: UICollectionViewFlowLayout {
         guard let collectionView = collectionView else { return }
 
         switch align {
-        case .left, .justified:
+        case .left:
             break
-        case .center:
-            attributes.forEach { layoutAttribute in
-                if let data = alignData.filter({ $0.lastRow > layoutAttribute.indexPath.row }).first {
-                    layoutAttribute.frame.origin.x += ((collectionView.bounds.size.width - data.lastMargin - sectionInset.right) / 2)
-                } else {
-                    layoutAttribute.frame.origin.x += ((collectionView.bounds.size.width - leftMargin - sectionInset.right) / 2)
-                }
-            }
         case .right:
             attributes.forEach { layoutAttribute in
                 if let data = alignData.filter({ $0.lastRow > layoutAttribute.indexPath.row }).first {

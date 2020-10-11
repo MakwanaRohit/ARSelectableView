@@ -23,8 +23,14 @@ var selectionView: ARSelectionView?
 
 ```swift
 var selectionView: ARSelectionView?
-self.selectionView = ARSelectionView(frame: frame) // set frame as per requirement
-self.view.addSubview(self.selectionView!) //add where You want 
+self.selectionView = ARSelectionView(frame: CGRect.zero)
+self.view.addSubview(self.selectionView!)
+
+selectionView?.translatesAutoresizingMaskIntoConstraints = false
+NSLayoutConstraint.activate([self.selectionView!.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                             self.selectionView!.leftAnchor.constraint(equalTo: view.leftAnchor),
+                             self.selectionView!.rightAnchor.constraint(equalTo: view.rightAnchor),
+                             self.selectionView!.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.height/2)])
 ```
 ### Control
 

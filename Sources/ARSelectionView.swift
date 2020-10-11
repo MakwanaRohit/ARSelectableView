@@ -14,19 +14,9 @@ final class ARSelectionView: UIView {
     static let DEFAULT_LINE_SPACING: CGFloat = 0
     static let DEFAULT_INTERITEM_SPACING : CGFloat = 0
     private var reseource: (cell: ARSelectableCell?, identifier: String)?
-    public var defaultButtonColor: UIColor?
-    public var selectedButtonColor: UIColor?
-    public var defaultTitleColor: UIColor?
-    public var selectedTitleColor: UIColor?
-    public var defaultCellBGColor: UIColor?
-    public var selectedCellBGColor: UIColor?
-    public var rowHeight : CGFloat = 35
-
-    public var alignment: ARSelectionAlignment? {
-        didSet {
-            self.collectionView.reloadData()
-        }
-    }
+    public var cellDesignOptions = ARCellDesignOptions()
+    public var options: ARCollectionLayoutOptions?
+    public var alignment: ARSelectionAlignment?
 
     public var selectionType : ARSelectionType = ARSelectionType.radio {
         didSet {
@@ -37,7 +27,12 @@ final class ARSelectionView: UIView {
             tagLayout.minimumLineSpacing = options?.lineSpacing ?? ARSelectionView.DEFAULT_LINE_SPACING
             tagLayout.scrollDirection = options?.scrollDirection ?? .vertical
             if selectionType == .tags {
-                tagLayout.align = self.alignment == .right ? .right : .left
+                if options?.scrollDirection == .horizontal {
+                    tagLayout.align = .none
+                }
+                else {
+                    tagLayout.align = self.alignment == .right ? .right : .left
+                }
             }
             else {
                 tagLayout.align = .none
@@ -58,7 +53,6 @@ final class ARSelectionView: UIView {
         return cv
     }()
 
-    public var options: ARSelectionView.Options?
 
     var items: [ARSelectModel] = [] {
         didSet {
@@ -133,32 +127,7 @@ extension ARSelectionView: UICollectionViewDelegate, UICollectionViewDataSource 
             if let alignment = self.alignment, alignment == .right, self.selectionType != .tags {
                 cell.alignment = alignment
             }
-
-            if let color = self.selectedButtonColor {
-                cell.selectedButtonColor = color
-            }
-
-            if let color = self.defaultButtonColor {
-                cell.defaultButtonColor = color
-            }
-
-            if let color = self.selectedTitleColor {
-                cell.selectedTitleColor = color
-            }
-
-            if let color = self.defaultTitleColor {
-                cell.defaultTitleColor = color
-            }
-
-            if let color = self.selectedCellBGColor {
-                cell.selectedCellBGColor = color
-            }
-
-            if let color = self.defaultCellBGColor {
-                cell.defaultCellBGColor = color
-            }
-
-            cell.selectItem = self.items[indexPath.row]
+            cell.configeCell(self.items[indexPath.row], designOptions: self.cellDesignOptions)
             cell.layoutIfNeeded()
             return cell
         }
@@ -178,16 +147,16 @@ extension ARSelectionView: UICollectionViewDelegateFlowLayout {
 
         if self.selectionType == .tags {
             guard let cell = reseource?.cell else { return .zero }
-            cell.selectItem = self.items[indexPath.row]
+            cell.configeCell(self.items[indexPath.row])
             let size = cell.fittingSize
-            return CGSize(width: size.width, height: self.rowHeight)
+            return CGSize(width: size.width, height: self.cellDesignOptions.rowHeight)
         }
         else {
             if self.options?.scrollDirection == .horizontal {
-                return CGSize(width: self.items[indexPath.row].width, height: self.rowHeight)
+                return CGSize(width: self.items[indexPath.row].width, height: self.cellDesignOptions.rowHeight)
             }
             else {
-                return CGSize(width: self.frame.width, height: self.rowHeight)
+                return CGSize(width: self.frame.width, height: self.cellDesignOptions.rowHeight)
             }
         }
     }
@@ -201,24 +170,20 @@ extension ARSelectionView: ARSelectionDelegate {
     }
 }
 
-//MARK:- Layout Options
-extension ARSelectionView {
+struct ARCollectionLayoutOptions {
+    public let sectionInset: UIEdgeInsets
+    public let lineSpacing: CGFloat
+    public let interitemSpacing: CGFloat
+    public let scrollDirection : UICollectionView.ScrollDirection
 
-    struct Options {
-        public let sectionInset: UIEdgeInsets
-        public let lineSpacing: CGFloat
-        public let interitemSpacing: CGFloat
-        public let scrollDirection : UICollectionView.ScrollDirection
+    public init(sectionInset: UIEdgeInsets = .zero,
+                lineSpacing: CGFloat = ARSelectionView.DEFAULT_LINE_SPACING,
+                interitemSpacing: CGFloat = ARSelectionView.DEFAULT_INTERITEM_SPACING,
+                scrollDirection: UICollectionView.ScrollDirection = .vertical) {
 
-        public init(sectionInset: UIEdgeInsets = .zero,
-                    lineSpacing: CGFloat = ARSelectionView.DEFAULT_LINE_SPACING,
-                    interitemSpacing: CGFloat = ARSelectionView.DEFAULT_INTERITEM_SPACING,
-                    scrollDirection: UICollectionView.ScrollDirection = .horizontal) {
-
-            self.sectionInset = sectionInset
-            self.lineSpacing = lineSpacing
-            self.interitemSpacing = interitemSpacing
-            self.scrollDirection = scrollDirection
-        }
+        self.sectionInset = sectionInset
+        self.lineSpacing = lineSpacing
+        self.interitemSpacing = interitemSpacing
+        self.scrollDirection = scrollDirection
     }
 }

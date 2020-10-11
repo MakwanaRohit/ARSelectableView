@@ -8,14 +8,6 @@
 
 import UIKit
 
-struct ARTitle {
-
-    static let selectionType = "Selection Type"
-    static let radio = "Radio"
-    static let checkbox = "Checkbox"
-    static let tags = "Tags"
-}
-
 enum ARSelectionType {
     case radio
     case checkbox
@@ -38,54 +30,29 @@ enum ARSelectionType {
             return #imageLiteral(resourceName: "checked_checkbox")
         }
     }
-
-    var title: String {
-        switch self {
-        case .radio:
-            return "Radio"
-        case .checkbox:
-             return "Checkbox"
-        case .tags:
-             return "Tags"
-        }
-    }
 }
 
 enum ARSelectionAlignment {
     case left
     case right
-
-    var title: String {
-        switch self {
-        case .left:
-            return "Left"
-        case .right:
-             return "Right"
-        }
-    }
-}
-
-extension ARSelectionView.Options {
-    enum Alignment {
-        case justified
-        case left
-        case center
-        case right
-        case none
-    }
+    case none
 }
 
 enum ARScrollDirection {
 
     case vertical
     case horizontal
+}
 
-    var title: String {
-        switch self {
-        case .vertical:
-            return "Vertical"
-        case .horizontal:
-             return "Horizontal"
-        }
-    }
+struct ARCellDesignOptions {
+
+    public var selectedButtonColor : UIColor = .black
+    public var defaultButtonColor : UIColor = .black
+    public var selectedTitleColor : UIColor = .black
+    public var defaultTitleColor : UIColor = .black
+    public var selectedCellBGColor : UIColor = .white
+    public var defaultCellBGColor : UIColor = .white
+    public var rowHeight : CGFloat = 35
+    public var isShowButton : Bool = true
+    public var cornerRadius : CGFloat = 0
 }

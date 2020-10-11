@@ -8,21 +8,18 @@
 
 import UIKit
 
+let width = UIScreen.main.bounds.size.width
+let height = UIScreen.main.bounds.size.height
+
 class ARSelectionViewController: UIViewController {
 
-    private let width = UIScreen.main.bounds.size.width
-    private let height = UIScreen.main.bounds.size.height
+    //MARK: - IBOutlets
+    @IBOutlet weak var selectionTypeSegment: UISegmentedControl!
+    @IBOutlet weak var alignmentSegment: UISegmentedControl!
+    @IBOutlet weak var directionSegment: UISegmentedControl!
 
     //MARK: - Declared Variables
     fileprivate var selectionView: ARSelectionView?
-    fileprivate var selectionOptions: [ARSelectionType] = [.radio, .checkbox, .tags]
-    fileprivate var directionOptions: [ARScrollDirection] = [.vertical, .horizontal]
-    fileprivate var alignmentOptions: [ARSelectionAlignment] = [.left, .right]
-    fileprivate let noOfRow: CGFloat = 5
-    
-    fileprivate var refreshButtonItem : UIBarButtonItem!
-    fileprivate var alignButtonItem : UIBarButtonItem!
-
     var alignment: ARSelectionAlignment = ARSelectionAlignment.left {
         willSet {
             if newValue != self.alignment {
@@ -60,13 +57,6 @@ class ARSelectionViewController: UIViewController {
 
         self.view.backgroundColor = UIColor(red: 250.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1)
         self.title = "Selection"
-
-        self.refreshButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(self.showSelectionOption))
-        self.alignButtonItem = UIBarButtonItem(title: "Align", style: .plain, target: self, action: #selector(self.showAlignmentOptions))
-
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Direction", style: .plain, target: self, action: #selector(self.showDirectionOptions))
-        self.navigationItem.rightBarButtonItems = [self.alignButtonItem, self.refreshButtonItem]
-
         self.setSelectionViewOptions()
     }
 
@@ -77,21 +67,11 @@ class ARSelectionViewController: UIViewController {
         self.selectionView = ARSelectionView(frame: CGRect.zero)
         self.view.addSubview(self.selectionView!)
 
-        selectionView?.translatesAutoresizingMaskIntoConstraints = false
-        let guide = view.safeAreaLayoutGuide
-        var constraints = [self.selectionView!.topAnchor.constraint(equalTo: guide.topAnchor),
-                           self.selectionView!.leftAnchor.constraint(equalTo: view.leftAnchor),
-                           self.selectionView!.rightAnchor.constraint(equalTo: view.rightAnchor)]
-
-        if self.scrollDirection == .vertical {
-            constraints.append(self.selectionView!.bottomAnchor.constraint(equalTo: view.bottomAnchor))
-        }
-        else {
-            //Change height as per requirement
-            constraints.append(self.selectionView!.heightAnchor.constraint(equalToConstant: self.selectionView!.rowHeight*noOfRow))
-        }
-
-        NSLayoutConstraint.activate(constraints)
+        self.selectionView?.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([self.selectionView!.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                                     self.selectionView!.leftAnchor.constraint(equalTo: view.leftAnchor),
+                                     self.selectionView!.rightAnchor.constraint(equalTo: view.rightAnchor),
+                                     self.selectionView!.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.height/2)])
     }
 
     fileprivate func setSelectionViewOptions(_ selectionType: ARSelectionType = ARSelectionType.radio) {
@@ -100,22 +80,26 @@ class ARSelectionViewController: UIViewController {
         self.view.layoutIfNeeded()
 
         if selectionType == ARSelectionType.tags {
-            self.selectionView?.rowHeight = 40
-            self.selectionView?.selectedTitleColor = .white
-            self.selectionView?.defaultTitleColor = .black
-            self.selectionView?.selectedCellBGColor = .black
-            self.selectionView?.defaultCellBGColor = UIColor.lightGray.withAlphaComponent(0.3)
-            self.selectionView?.options = ARSelectionView.Options(sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),lineSpacing: 10, interitemSpacing: 10, scrollDirection: .vertical)
+            var designOption = ARCellDesignOptions()
+            designOption.defaultCellBGColor = UIColor.lightGray.withAlphaComponent(0.3)
+            designOption.selectedTitleColor = .white
+            designOption.selectedCellBGColor = .black
+            designOption.selectedButtonColor = .white
+            designOption.rowHeight = 40
+            designOption.cornerRadius = 5
+            self.selectionView?.cellDesignOptions = designOption
+            self.selectionView?.options = ARCollectionLayoutOptions(sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),lineSpacing: 10, interitemSpacing: 10, scrollDirection: .vertical)
         }
         else {
-            self.selectionView?.options = ARSelectionView.Options(scrollDirection: self.scrollDirection == .vertical ? .vertical: .horizontal)
+            self.selectionView?.cellDesignOptions = ARCellDesignOptions()
+            self.selectionView?.options = ARCollectionLayoutOptions(scrollDirection: self.scrollDirection == .vertical ? .vertical: .horizontal)
         }
-
+        
         self.selectionView?.alignment = self.alignment
         self.selectionView?.selectionType = selectionType
 
         let items = self.getDummyItems()
-        let chunkeditems = items.chunked(into: Int(noOfRow))
+        let chunkeditems = items.chunked(into: Int((self.selectionView?.frame.height)! / (self.selectionView?.cellDesignOptions.rowHeight)!))
         for insa in chunkeditems {
             let maxHeight = (insa.map { $0.width }.max() ?? width/2) + ARSelectableCell.extraSpace
             insa.forEach {$0.width = maxHeight }
@@ -124,56 +108,6 @@ class ARSelectionViewController: UIViewController {
         DispatchQueue.main.async {
             self.selectionView?.items = items
         }
-    }
-
-    //MARK: - Layout Options
-
-    /// Show actionsheet for selection options
-    @objc private func showSelectionOption() {
-
-        var options = self.selectionOptions
-        if scrollDirection == .horizontal {
-            options.removeLast()
-        }
-
-        let actionSheet = UIAlertController(title: "Selection Type", message: "", preferredStyle: .actionSheet)
-        for option in options {
-            let action = UIAlertAction(title: option.title, style: .default) { (action) in
-                self.currentSelectionType = option
-            }
-            actionSheet.addAction(action)
-        }
-        self.present(actionSheet, animated: true, completion: nil)
-    }
-
-    /// Show actionsheet for Direction options
-    @objc private func showDirectionOptions() {
-
-        let actionSheet = UIAlertController(title: "Direction Type", message: "", preferredStyle: .actionSheet)
-        for option in directionOptions {
-            let action = UIAlertAction(title: option.title, style: .default) { (action) in
-                DispatchQueue.main.async {
-                    self.scrollDirection = option
-                }
-            }
-            actionSheet.addAction(action)
-        }
-        self.present(actionSheet, animated: true, completion: nil)
-    }
-
-    /// Show actionsheet for Alignment options
-    @objc private func showAlignmentOptions() {
-
-        let actionSheet = UIAlertController(title: "Alignment Type", message: "", preferredStyle: .actionSheet)
-        for option in alignmentOptions {
-            let action = UIAlertAction(title: option.title, style: .default) { (action) in
-                DispatchQueue.main.async {
-                    self.alignment = option
-                }
-            }
-            actionSheet.addAction(action)
-        }
-        self.present(actionSheet, animated: true, completion: nil)
     }
 
     //MARK: - Static Data
@@ -208,4 +142,52 @@ class ARSelectionViewController: UIViewController {
                 ARSelectModel(title: "Hip Hop Music")]
     }
 }
+//MARK: - Segment IBAction
 
+extension ARSelectionViewController {
+    
+    @IBAction func selectionTypeValueChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            self.currentSelectionType = .radio
+        }
+        else if sender.selectedSegmentIndex == 1 {
+            self.currentSelectionType = .checkbox
+        }
+        else {
+            self.currentSelectionType = .tags
+        }
+        
+        self.setSelectionViewOptions(self.currentSelectionType)
+    }
+    
+    @IBAction func alignmentValueChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            self.alignment = .left
+        }
+        else if sender.selectedSegmentIndex == 1 {
+            self.alignment = .right
+        }
+        self.setSelectionViewOptions(self.currentSelectionType)
+    }
+    
+    @IBAction func directionValueChanged(_ sender: UISegmentedControl) {
+
+        if self.selectionTypeSegment.selectedSegmentIndex == 2 {
+            self.directionSegment.selectedSegmentIndex = 0
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "", message: "This selection type not supported horizontal scroll direction", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        else {
+            if sender.selectedSegmentIndex == 0 {
+                self.scrollDirection = .vertical
+            }
+            else {
+                self.scrollDirection = .horizontal
+            }
+            self.setSelectionViewOptions(self.currentSelectionType)
+        }
+    }
+}
