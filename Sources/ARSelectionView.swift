@@ -14,10 +14,10 @@ final class ARSelectionView: UIView {
     static let DEFAULT_LINE_SPACING: CGFloat = 0
     static let DEFAULT_INTERITEM_SPACING : CGFloat = 0
     private var reseource: (cell: ARSelectableCell?, identifier: String)?
-    public var cellDesignOptions = ARCellDesignOptions()
-    public lazy var tagLayout = ARTagFlowLayout()
+    public var cellDesignDefaults = ARCellDesignDefaults()
+    public lazy var tagLayout = ARFlowLayout()
 
-    public var options: ARCollectionLayoutOptions = ARCollectionLayoutOptions() {
+    public var options: ARCollectionLayoutDefaults = ARCollectionLayoutDefaults() {
         didSet{
             tagLayout.sectionInset = self.options.sectionInset
             tagLayout.minimumInteritemSpacing = options.interitemSpacing
@@ -29,7 +29,6 @@ final class ARSelectionView: UIView {
             else {
                 tagLayout.align = .none
             }
-
             self.collectionView.collectionViewLayout = tagLayout
             self.collectionView.reloadData()
         }
@@ -139,7 +138,7 @@ extension ARSelectionView: UICollectionViewDelegate, UICollectionViewDataSource 
 
             cell.delegate = self
             cell.alignment = self.alignment ?? .left
-            cell.configeCell(self.items[indexPath.row], designOptions: self.cellDesignOptions)
+            cell.configeCell(self.items[indexPath.row], designOptions: self.cellDesignDefaults)
             cell.layoutIfNeeded()
             return cell
         }
@@ -159,16 +158,16 @@ extension ARSelectionView: UICollectionViewDelegateFlowLayout {
 
         if self.selectionType == .tags {
             guard let cell = reseource?.cell else { return .zero }
-            cell.configeCell(self.items[indexPath.row])
+            cell.configeCell(self.items[indexPath.row], designOptions: self.cellDesignDefaults)
             let size = cell.fittingSize
-            return CGSize(width: size.width, height: self.cellDesignOptions.rowHeight)
+            return CGSize(width: size.width, height: self.cellDesignDefaults.rowHeight)
         }
         else {
             if self.options.scrollDirection == .horizontal {
-                return CGSize(width: self.items[indexPath.row].width, height: self.cellDesignOptions.rowHeight)
+                return CGSize(width: self.items[indexPath.row].width, height: self.cellDesignDefaults.rowHeight)
             }
             else {
-                return CGSize(width: self.frame.width, height: self.cellDesignOptions.rowHeight)
+                return CGSize(width: self.frame.width, height: self.cellDesignDefaults.rowHeight)
             }
         }
     }

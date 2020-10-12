@@ -1,14 +1,16 @@
 //
-//  ARCollectionLayoutOptions.swift
+//  ARBasicConfiguration.swift
 //  ARSelectableView
 //
-//  Created by Rohit Makwana on 11/10/20.
+//  Created by Rohit Makwana on 12/10/20.
 //  Copyright © 2020 Rohit Makwana. All rights reserved.
 //
 
 import UIKit
 
-struct ARCollectionLayoutOptions {
+
+// CollectionView layout options
+struct ARCollectionLayoutDefaults {
 
     public let sectionInset: UIEdgeInsets
     public let lineSpacing: CGFloat
@@ -25,4 +27,18 @@ struct ARCollectionLayoutOptions {
         self.interitemSpacing = interitemSpacing
         self.scrollDirection = scrollDirection
     }
+}
+
+// CollectionView cell defaults
+struct ARCellDesignDefaults {
+
+    public var selectedButtonColor : UIColor = .black
+    public var defaultButtonColor : UIColor = .black
+    public var selectedTitleColor : UIColor = .black
+    public var defaultTitleColor : UIColor = .black
+    public var selectedCellBGColor : UIColor = .white
+    public var defaultCellBGColor : UIColor = .white
+    public var rowHeight : CGFloat = 35
+    public var isShowButton : Bool = true
+    public var cornerRadius : CGFloat = 0
 }

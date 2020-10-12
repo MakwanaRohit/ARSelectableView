@@ -1,5 +1,5 @@
 //
-//  ARTagFlowLayout.swift
+//  ARFlowLayout.swift
 //  ARSelectableView
 //
 //  Created by Rohit Makwana on 04/10/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ARTagFlowLayout: UICollectionViewFlowLayout {
+public class ARFlowLayout: UICollectionViewFlowLayout {
 
     typealias AlignType = (lastRow: Int, lastMargin: CGFloat)
     var align: ARSelectionAlignment = .left

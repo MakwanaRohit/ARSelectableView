@@ -21,7 +21,6 @@ class ARSelectionViewController: UIViewController {
     @IBOutlet weak var directionSegment: UISegmentedControl!
 
     //MARK: - Declared Variables
-
     let musics = ["Blues Music", "Jazz Music", "Rock and Roll Music", "Soul Music",
                  "Dance Music", "Hip Hop Music", "Rhythm and Blues Music", "Country Music",
                  "Rock Music", "Blues Music", "Jazz Music", "Rhythm and Blues Music",
@@ -47,20 +46,21 @@ class ARSelectionViewController: UIViewController {
                 self.navigationItem.leftBarButtonItem?.isEnabled = newValue != .tags
                 DispatchQueue.main.async {
                     if newValue == ARSelectionType.tags {
-                        var designOption = ARCellDesignOptions()
-                        designOption.defaultCellBGColor = UIColor.lightGray.withAlphaComponent(0.3)
-                        designOption.selectedTitleColor = .white
-                        designOption.selectedCellBGColor = .black
-                        designOption.selectedButtonColor = .white
-                        designOption.rowHeight = 40
-                        designOption.cornerRadius = 5
-                        self.selectionView?.cellDesignOptions = designOption
-                        self.selectionView?.options = ARCollectionLayoutOptions(sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),lineSpacing: 10, interitemSpacing: 10, scrollDirection: .vertical)
+                        var designDefaults = ARCellDesignDefaults()
+                        designDefaults.defaultCellBGColor = UIColor.lightGray.withAlphaComponent(0.3)
+                        designDefaults.selectedTitleColor = .white
+                        designDefaults.selectedCellBGColor = .black
+                        designDefaults.selectedButtonColor = .white
+                        designDefaults.rowHeight = 40
+                        designDefaults.cornerRadius = 5
+                        designDefaults.isShowButton = false
+                        self.selectionView?.cellDesignDefaults = designDefaults
+                        self.selectionView?.options = ARCollectionLayoutDefaults(sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),lineSpacing: 10, interitemSpacing: 10, scrollDirection: .vertical)
                     }
                     else {
                         self.selectionView?.items.forEach {$0.isSelected = false}
-                        self.selectionView?.cellDesignOptions = ARCellDesignOptions()
-                        self.selectionView?.options = ARCollectionLayoutOptions(scrollDirection: self.scrollDirection == .vertical ? .vertical: .horizontal)
+                        self.selectionView?.cellDesignDefaults = ARCellDesignDefaults()
+                        self.selectionView?.options = ARCollectionLayoutDefaults(scrollDirection: self.scrollDirection == .vertical ? .vertical: .horizontal)
                     }
                     self.selectionView?.selectionType = newValue
                 }
@@ -73,10 +73,10 @@ class ARSelectionViewController: UIViewController {
             if newValue != self.scrollDirection {
                 DispatchQueue.main.async {
                     if self.currentSelectionType == .tags {
-                        self.selectionView?.options = ARCollectionLayoutOptions(sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),lineSpacing: 10, interitemSpacing: 10, scrollDirection: .vertical)
+                        self.selectionView?.options = ARCollectionLayoutDefaults(sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),lineSpacing: 10, interitemSpacing: 10, scrollDirection: .vertical)
                     }
                     else {
-                        self.selectionView?.options = ARCollectionLayoutOptions(scrollDirection: newValue)
+                        self.selectionView?.options = ARCollectionLayoutDefaults(scrollDirection: newValue)
                     }
                 }
             }
@@ -87,7 +87,6 @@ class ARSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor(red: 250.0/255.0, green: 250.0/255.0, blue: 250.0/255.0, alpha: 1)
         self.title = "Selection"
 
         self.addSelectionView()
@@ -119,9 +118,9 @@ class ARSelectionViewController: UIViewController {
             items.append(ARSelectModel(title: music))
         }
 
-        let chunkeditems = items.chunked(into: Int((self.selectionView?.frame.height)! / (self.selectionView?.cellDesignOptions.rowHeight)!))
+        let chunkeditems = items.chunked(into: Int((self.selectionView?.frame.height)! / (self.selectionView?.cellDesignDefaults.rowHeight)!))
         for insa in chunkeditems {
-            let maxHeight = (insa.map { $0.width }.max() ?? width/2) + ARSelectableCell.extraSpace
+            let maxHeight = (insa.map { $0.width }.max() ?? width/2) + ARSelectableCell.CELL_EXTRA_SPACE
             insa.forEach {$0.width = maxHeight }
         }
 
@@ -133,7 +132,7 @@ class ARSelectionViewController: UIViewController {
     //MARK: - Show Selection Alert
     private func showSelectionAlert() {
         DispatchQueue.main.async {
-            let alert = UIAlertController(title: "", message: "This selection type not supported horizontal scroll direction", preferredStyle: .alert)
+            let alert = UIAlertController(title: "", message: "Tag selection type not supported horizontal scroll direction", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }

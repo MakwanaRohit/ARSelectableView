@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol ARSelectionDelegate: AnyObject {
     func ARSelectionAction(_ selectItem: ARSelectModel)
 }
@@ -20,14 +19,13 @@ class ARSelectableCell: UICollectionViewCell {
         return self.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     }
 
-    static let extraSpace: CGFloat = 55
+    static let CELL_EXTRA_SPACE: CGFloat = 55
     static let titleFont = UIFont.systemFont(ofSize : 15)
     fileprivate var selectItem: ARSelectModel?
     weak var delegate :ARSelectionDelegate?
-    
-    var alignment : ARSelectionAlignment = ARSelectionAlignment.left {
-        didSet {
 
+    var alignment: ARSelectionAlignment = ARSelectionAlignment.left {
+        didSet {
             self.selectButton.removeFromSuperview()
             self.titleLabel.removeFromSuperview()
 
@@ -108,21 +106,23 @@ class ARSelectableCell: UICollectionViewCell {
     }
 
     // MARK: - Confige Cell
-    func configeCell(_ selectItem: ARSelectModel?, designOptions: ARCellDesignOptions? = ARCellDesignOptions()) {
+    func configeCell(_ selectItem: ARSelectModel?,
+                     designOptions: ARCellDesignDefaults? = ARCellDesignDefaults(),
+                     alignment : ARSelectionAlignment = ARSelectionAlignment.left) {
 
         if let select = selectItem, let options = designOptions {
+
             self.selectItem = selectItem
             self.titleLabel.text = select.title
+            self.titleLabel.textColor = select.isSelected ? options.selectedTitleColor : options.defaultTitleColor
+            self.backgroundColor = select.isSelected ? options.selectedCellBGColor : options.defaultCellBGColor
+            self.layer.cornerRadius = options.cornerRadius
 
+            self.selectButton.isHidden = !options.isShowButton
             self.selectButton.isSelected = select.isSelected
             self.selectButton.setTintImage(select.isSelected ? select.selectionType!.selectedImage : select.selectionType!.defaultImage,
                                            tintColor: select.isSelected ? options.selectedButtonColor : options.defaultButtonColor,
                                            state: select.isSelected ? .selected: .normal)
-
-            self.backgroundColor = select.isSelected ? options.selectedCellBGColor : options.defaultCellBGColor
-            self.titleLabel.textColor = select.isSelected ? options.selectedTitleColor : options.defaultTitleColor
-            self.selectButton.isHidden = !options.isShowButton
-            self.layer.cornerRadius = options.cornerRadius
         }
     }
 }
