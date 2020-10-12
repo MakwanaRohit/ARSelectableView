@@ -53,7 +53,7 @@ class ARSelectionViewController: UIViewController {
                         designDefaults.selectedCellBGColor = .black
                         designDefaults.selectedButtonColor = .white
                         designDefaults.rowHeight = 40
-                        designDefaults.cornerRadius = 5
+//                        designDefaults.cornerRadius = 5 // set as per need 
                         self.selectionView?.cellDesignDefaults = designDefaults
                         self.selectionView?.options = ARCollectionLayoutDefaults(sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),lineSpacing: 10, interitemSpacing: 10, scrollDirection: .vertical)
                     }
