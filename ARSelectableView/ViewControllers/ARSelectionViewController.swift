@@ -21,6 +21,7 @@ class ARSelectionViewController: UIViewController {
     @IBOutlet weak var directionSegment: UISegmentedControl!
 
     //MARK: - Declared Variables
+    let selectionMessage = "Tag selection type not supported horizontal scroll direction"
     let musics = ["Blues Music", "Jazz Music", "Rock and Roll Music", "Soul Music",
                  "Dance Music", "Hip Hop Music", "Rhythm and Blues Music", "Country Music",
                  "Rock Music", "Blues Music", "Jazz Music", "Rhythm and Blues Music",
@@ -53,7 +54,6 @@ class ARSelectionViewController: UIViewController {
                         designDefaults.selectedButtonColor = .white
                         designDefaults.rowHeight = 40
                         designDefaults.cornerRadius = 5
-                        designDefaults.isShowButton = false
                         self.selectionView?.cellDesignDefaults = designDefaults
                         self.selectionView?.options = ARCollectionLayoutDefaults(sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),lineSpacing: 10, interitemSpacing: 10, scrollDirection: .vertical)
                     }
@@ -98,6 +98,8 @@ class ARSelectionViewController: UIViewController {
     fileprivate func addSelectionView() {
 
         self.selectionView = ARSelectionView(frame: CGRect.zero)
+        self.selectionView?.delegate = self
+        self.selectionView?.maxSelectCount = 5
         self.view.addSubview(self.selectionView!)
 
         self.selectionView?.translatesAutoresizingMaskIntoConstraints = false
@@ -130,9 +132,9 @@ class ARSelectionViewController: UIViewController {
     }
 
     //MARK: - Show Selection Alert
-    private func showSelectionAlert() {
+    private func showAlert(WithMessage message: String) {
         DispatchQueue.main.async {
-            let alert = UIAlertController(title: "", message: "Tag selection type not supported horizontal scroll direction", preferredStyle: .alert)
+            let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -145,7 +147,7 @@ extension ARSelectionViewController {
     @IBAction func selectionTypeValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 2 {
             if self.directionSegment.selectedSegmentIndex == 1 {
-                self.showSelectionAlert()
+                self.showAlert(WithMessage: selectionMessage)
                 sender.selectedSegmentIndex =  self.currentSelectionType?.rawValue ?? 0
             }
             else {
@@ -164,10 +166,19 @@ extension ARSelectionViewController {
     @IBAction func directionValueChanged(_ sender: UISegmentedControl) {
         if self.selectionTypeSegment.selectedSegmentIndex == 2 {
             self.directionSegment.selectedSegmentIndex = 0
-            self.showSelectionAlert()
+            self.showAlert(WithMessage: selectionMessage)
         }
         else {
             self.scrollDirection = sender.selectedSegmentIndex == 0 ? .vertical : .horizontal
         }
+    }
+}
+
+//MARK: - ARSelectionView Delegate
+extension ARSelectionViewController: ARSelectionViewDelegate {
+
+    func selectionMaxLimitReached(_ selectionView: ARSelectionView) {
+
+        self.showAlert(WithMessage: "You can select maximum \(selectionView.maxSelectCount ?? 0)")
     }
 }

@@ -4,9 +4,15 @@
 
 
 ## Selection Type
-1. radio
-2. checkbox
-3. tag
+- Radio
+- Checkbox
+- Tags
+
+## Requirements
+
+- iOS 11.0+
+- Xcode 11.0+
+- Swift 4.2+
 
 ## Usage
 
@@ -43,8 +49,7 @@ Set items
 
 
 ```swift
-let items = [ARSelectModel(title: "Blues Music"), ARSelectModel(title: "Jazz Music")]
-self.selectionView?.items = items
+self.selectionView?.items = [ARSelectModel(title: "Blues Music"), ARSelectModel(title: "Jazz Music")]
 ```
 
 ### Change properties

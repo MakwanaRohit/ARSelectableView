@@ -8,14 +8,21 @@
 
 import UIKit
 
+protocol ARSelectionViewDelegate: class {
+    func selectionMaxLimitReached( _ selectionView: ARSelectionView)
+}
+
 final class ARSelectionView: UIView {
 
     // MARK: - Declared Variables
     static let DEFAULT_LINE_SPACING: CGFloat = 0
     static let DEFAULT_INTERITEM_SPACING : CGFloat = 0
+    weak var delegate: ARSelectionViewDelegate?
+
     private var reseource: (cell: ARSelectableCell?, identifier: String)?
     public var cellDesignDefaults = ARCellDesignDefaults()
     public lazy var tagLayout = ARFlowLayout()
+    public var maxSelectCount : Int?
 
     public var options: ARCollectionLayoutDefaults = ARCollectionLayoutDefaults() {
         didSet{
@@ -117,11 +124,24 @@ final class ARSelectionView: UIView {
         if self.selectionType == .radio {
             self.items.filter { $0.isSelected == true }.forEach { ($0).isSelected = false }
             selectItem.isSelected = !status
+            collectionView.reloadData()
         }
         else {
-            selectItem.isSelected.toggle()
+            if let maxCount = self.maxSelectCount, !selectItem.isSelected {
+                let count = self.items.filter { $0.isSelected == true }.count
+                if count < maxCount {
+                    selectItem.isSelected.toggle()
+                    collectionView.reloadData()
+                }
+                else {
+                    self.delegate?.selectionMaxLimitReached(self)
+                }
+            }
+            else{
+                selectItem.isSelected.toggle()
+                collectionView.reloadData()
+            }
         }
-        collectionView.reloadData()
     }
 }
 
