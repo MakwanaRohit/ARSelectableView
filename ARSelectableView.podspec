@@ -17,6 +17,6 @@ Pod::Spec.new do |spec|
   spec.swift_version = "4.2"
 
   spec.source       = { :git => "https://github.com/MakwanaRohit/ARSelectableView.git", :tag => spec.version }
-  spec.source_files = "Sources", "Sources/**/*.swift"
+  spec.source_files  = "ARSelectableView/**/*.{h,m,swift}"
 
 end
