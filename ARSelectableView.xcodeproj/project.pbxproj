@@ -13,13 +13,13 @@
 		8AC33AAB2535C0A100009EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AC33AAA2535C0A100009EA5 /* Assets.xcassets */; };
 		8AC33AAE2535C0A100009EA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC33AAC2535C0A100009EA5 /* LaunchScreen.storyboard */; };
 		8AC33AB72535C11900009EA5 /* ARSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AB62535C11900009EA5 /* ARSelectionViewController.swift */; };
-		8AC33AD32535C27800009EA5 /* ARTagFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33ACB2535C27800009EA5 /* ARTagFlowLayout.swift */; };
-		8AC33AD42535C27800009EA5 /* ARBasicConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33ACC2535C27800009EA5 /* ARBasicConfiguration.swift */; };
-		8AC33AD52535C27800009EA5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33ACD2535C27800009EA5 /* Extension.swift */; };
-		8AC33AD62535C27800009EA5 /* ARSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33ACE2535C27800009EA5 /* ARSelectModel.swift */; };
-		8AC33AD72535C27800009EA5 /* ARSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AD02535C27800009EA5 /* ARSelectableCell.swift */; };
-		8AC33AD82535C27800009EA5 /* ARSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AD12535C27800009EA5 /* ARSelectionType.swift */; };
-		8AC33AD92535C27800009EA5 /* ARSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AD22535C27800009EA5 /* ARSelectionView.swift */; };
+		8AC33AE42535C3E900009EA5 /* ARTagFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33ADC2535C3E900009EA5 /* ARTagFlowLayout.swift */; };
+		8AC33AE52535C3E900009EA5 /* ARBasicConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33ADD2535C3E900009EA5 /* ARBasicConfiguration.swift */; };
+		8AC33AE62535C3E900009EA5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33ADE2535C3E900009EA5 /* Extension.swift */; };
+		8AC33AE72535C3E900009EA5 /* ARSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33ADF2535C3E900009EA5 /* ARSelectModel.swift */; };
+		8AC33AE82535C3E900009EA5 /* ARSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AE12535C3E900009EA5 /* ARSelectableCell.swift */; };
+		8AC33AE92535C3E900009EA5 /* ARSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AE22535C3E900009EA5 /* ARSelectionType.swift */; };
+		8AC33AEA2535C3E900009EA5 /* ARSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AE32535C3E900009EA5 /* ARSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +31,13 @@
 		8AC33AAD2535C0A100009EA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AC33AAF2535C0A100009EA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AC33AB62535C11900009EA5 /* ARSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionViewController.swift; sourceTree = "<group>"; };
-		8AC33ACB2535C27800009EA5 /* ARTagFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTagFlowLayout.swift; sourceTree = "<group>"; };
-		8AC33ACC2535C27800009EA5 /* ARBasicConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARBasicConfiguration.swift; sourceTree = "<group>"; };
-		8AC33ACD2535C27800009EA5 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		8AC33ACE2535C27800009EA5 /* ARSelectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectModel.swift; sourceTree = "<group>"; };
-		8AC33AD02535C27800009EA5 /* ARSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectableCell.swift; sourceTree = "<group>"; };
-		8AC33AD12535C27800009EA5 /* ARSelectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionType.swift; sourceTree = "<group>"; };
-		8AC33AD22535C27800009EA5 /* ARSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionView.swift; sourceTree = "<group>"; };
+		8AC33ADC2535C3E900009EA5 /* ARTagFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTagFlowLayout.swift; sourceTree = "<group>"; };
+		8AC33ADD2535C3E900009EA5 /* ARBasicConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARBasicConfiguration.swift; sourceTree = "<group>"; };
+		8AC33ADE2535C3E900009EA5 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		8AC33ADF2535C3E900009EA5 /* ARSelectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectModel.swift; sourceTree = "<group>"; };
+		8AC33AE12535C3E900009EA5 /* ARSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectableCell.swift; sourceTree = "<group>"; };
+		8AC33AE22535C3E900009EA5 /* ARSelectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionType.swift; sourceTree = "<group>"; };
+		8AC33AE32535C3E900009EA5 /* ARSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				8AC33AA02535C09F00009EA5 /* ARSelectableView */,
-				8AC33AC92535C27800009EA5 /* Source */,
 				8AC33A9F2535C09F00009EA5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +70,7 @@
 		8AC33AA02535C09F00009EA5 /* ARSelectableView */ = {
 			isa = PBXGroup;
 			children = (
+				8AC33ADA2535C3E900009EA5 /* Sources */,
 				8AC33AB52535C11900009EA5 /* ViewControllers */,
 				8AC33AA12535C09F00009EA5 /* AppDelegate.swift */,
 				8AC33AA32535C09F00009EA5 /* SceneDelegate.swift */,
@@ -90,32 +90,32 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		8AC33AC92535C27800009EA5 /* Source */ = {
+		8AC33ADA2535C3E900009EA5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8AC33ACA2535C27800009EA5 /* Helper */,
-				8AC33ACF2535C27800009EA5 /* Base */,
+				8AC33ADB2535C3E900009EA5 /* Helper */,
+				8AC33AE02535C3E900009EA5 /* Base */,
 			);
-			path = Source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		8AC33ACA2535C27800009EA5 /* Helper */ = {
+		8AC33ADB2535C3E900009EA5 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				8AC33ACB2535C27800009EA5 /* ARTagFlowLayout.swift */,
-				8AC33ACC2535C27800009EA5 /* ARBasicConfiguration.swift */,
-				8AC33ACD2535C27800009EA5 /* Extension.swift */,
-				8AC33ACE2535C27800009EA5 /* ARSelectModel.swift */,
+				8AC33ADC2535C3E900009EA5 /* ARTagFlowLayout.swift */,
+				8AC33ADD2535C3E900009EA5 /* ARBasicConfiguration.swift */,
+				8AC33ADE2535C3E900009EA5 /* Extension.swift */,
+				8AC33ADF2535C3E900009EA5 /* ARSelectModel.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		8AC33ACF2535C27800009EA5 /* Base */ = {
+		8AC33AE02535C3E900009EA5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				8AC33AD02535C27800009EA5 /* ARSelectableCell.swift */,
-				8AC33AD12535C27800009EA5 /* ARSelectionType.swift */,
-				8AC33AD22535C27800009EA5 /* ARSelectionView.swift */,
+				8AC33AE12535C3E900009EA5 /* ARSelectableCell.swift */,
+				8AC33AE22535C3E900009EA5 /* ARSelectionType.swift */,
+				8AC33AE32535C3E900009EA5 /* ARSelectionView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -191,16 +191,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AC33AD72535C27800009EA5 /* ARSelectableCell.swift in Sources */,
+				8AC33AE82535C3E900009EA5 /* ARSelectableCell.swift in Sources */,
 				8AC33AA22535C09F00009EA5 /* AppDelegate.swift in Sources */,
-				8AC33AD92535C27800009EA5 /* ARSelectionView.swift in Sources */,
-				8AC33AD32535C27800009EA5 /* ARTagFlowLayout.swift in Sources */,
+				8AC33AEA2535C3E900009EA5 /* ARSelectionView.swift in Sources */,
+				8AC33AE42535C3E900009EA5 /* ARTagFlowLayout.swift in Sources */,
 				8AC33AB72535C11900009EA5 /* ARSelectionViewController.swift in Sources */,
-				8AC33AD52535C27800009EA5 /* Extension.swift in Sources */,
-				8AC33AD42535C27800009EA5 /* ARBasicConfiguration.swift in Sources */,
-				8AC33AD82535C27800009EA5 /* ARSelectionType.swift in Sources */,
+				8AC33AE62535C3E900009EA5 /* Extension.swift in Sources */,
+				8AC33AE52535C3E900009EA5 /* ARBasicConfiguration.swift in Sources */,
+				8AC33AE92535C3E900009EA5 /* ARSelectionType.swift in Sources */,
 				8AC33AA42535C09F00009EA5 /* SceneDelegate.swift in Sources */,
-				8AC33AD62535C27800009EA5 /* ARSelectModel.swift in Sources */,
+				8AC33AE72535C3E900009EA5 /* ARSelectModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

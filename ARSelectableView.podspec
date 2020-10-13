@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "ARSelectableView"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "ARSelectableView is provide selection type"
 
   spec.description  = <<-DESC
@@ -17,6 +17,6 @@ Pod::Spec.new do |spec|
   spec.swift_version = "4.2"
 
   spec.source       = { :git => "https://github.com/MakwanaRohit/ARSelectableView.git", :tag => spec.version }
-  spec.source_files  = "ARSelectableView/**/*.{h,m,swift}"
+  spec.source_files  = "ARSelectableView/Sources/**/*.swift"
 
 end
