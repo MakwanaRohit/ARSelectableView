@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "ARSelectableView"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.1"
   spec.summary      = "ARSelectableView is provide selection type"
 
   spec.description  = <<-DESC
