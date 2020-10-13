@@ -17,15 +17,6 @@ Pod::Spec.new do |spec|
   spec.swift_version = "4.2"
 
   spec.source       = { :git => "https://github.com/MakwanaRohit/ARSelectableView.git", :tag => spec.version }
-  spec.source_files = "Sources", "Sources/**/*.swift"
-  
-  spec.subspec 'Base' do |ss|
-    ss.source_files = 'Sources/Base/**/*.swift'
-  end
-  spec.subspec 'Helper' do |ss|
-    ss.dependency 'ARSelectableView/Base'
-    ss.source_files = 'Sources/Helper/**/*.swift'
-  end
-  s.default_subspec = 'Base'
+  spec.source_files = "Sources", "Sources/*.swift"
 
 end
