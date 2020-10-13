@@ -54,8 +54,8 @@
 		8A2571AF25302ED000EECFA0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8A2571B025302ED000EECFA0 /* ARSelectableCell.swift */,
 				8AC339B62535989D00009EA5 /* Helper */,
+				8A2571B025302ED000EECFA0 /* ARSelectableCell.swift */,
 				8A2571B125302ED000EECFA0 /* ARTagFlowLayout.swift */,
 				8A2571B225302ED000EECFA0 /* ARSelectionView.swift */,
 			);
