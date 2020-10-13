@@ -14,7 +14,6 @@ let height = UIScreen.main.bounds.size.height
 class ARSelectionViewController: UIViewController {
 
     //MARK: - IBOutlets
-
     @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var selectionTypeSegment: UISegmentedControl!
     @IBOutlet weak var alignmentSegment: UISegmentedControl!

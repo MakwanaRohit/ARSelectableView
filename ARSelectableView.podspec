@@ -1,11 +1,12 @@
+
 Pod::Spec.new do |spec|
 
   spec.name         = "ARSelectableView"
   spec.version      = "0.0.1"
-  spec.summary      = "ARSelectableView is provide multiple selection type"
+  spec.summary      = "ARSelectableView is provide selection type"
 
   spec.description  = <<-DESC
-This CocoaPods library helps you perform selection.
+  ARSelectableView is provide selection type like : Radio, Checkbox, Tags
                    DESC
 
   spec.homepage     = "https://github.com/MakwanaRohit/ARSelectableView"
@@ -15,7 +16,7 @@ This CocoaPods library helps you perform selection.
   spec.ios.deployment_target = "11.0"
   spec.swift_version = "4.2"
 
-  spec.source        = { :git => "https://github.com/jeantimex/SwiftyLib.git", :tag => "#{spec.version}" }
-  spec.source_files  = "ARSelectableView"
+  spec.source       = { :git => "https://github.com/MakwanaRohit/ARSelectableView.git", :tag => "#{spec.version}" }
+  spec.source_files = "ARSelectableView", "ARSelectableView/**/*.{h,m}"
 
 end
