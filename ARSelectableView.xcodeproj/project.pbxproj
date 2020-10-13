@@ -7,37 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A58EA132528AA9E00D885D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58EA122528AA9E00D885D9 /* AppDelegate.swift */; };
-		8A58EA152528AA9E00D885D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58EA142528AA9E00D885D9 /* SceneDelegate.swift */; };
-		8A58EA1A2528AA9E00D885D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A58EA182528AA9E00D885D9 /* Main.storyboard */; };
-		8A58EA1C2528AAA200D885D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A58EA1B2528AAA200D885D9 /* Assets.xcassets */; };
-		8A58EA1F2528AAA200D885D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A58EA1D2528AAA200D885D9 /* LaunchScreen.storyboard */; };
-		8A58EA272528AB9800D885D9 /* ARSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58EA262528AB9800D885D9 /* ARSelectionViewController.swift */; };
-		8AC339BB2535989D00009EA5 /* ARSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339B72535989D00009EA5 /* ARSelectionType.swift */; };
-		8AC339BC2535989D00009EA5 /* ARBasicConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339B82535989D00009EA5 /* ARBasicConfiguration.swift */; };
-		8AC339BD2535989D00009EA5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339B92535989D00009EA5 /* Extension.swift */; };
-		8AC339BE2535989D00009EA5 /* ARSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339BA2535989D00009EA5 /* ARSelectModel.swift */; };
-		8AC339E32535AD2800009EA5 /* ARSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339E02535AD2800009EA5 /* ARSelectableCell.swift */; };
-		8AC339E42535AD2800009EA5 /* ARSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339E12535AD2800009EA5 /* ARSelectionType.swift */; };
-		8AC339E52535AD2800009EA5 /* ARSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339E22535AD2800009EA5 /* ARSelectionView.swift */; };
+		8AC339FD2535AE1100009EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AC339E72535AE1100009EA5 /* Assets.xcassets */; };
+		8AC339FE2535AE1100009EA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC339E82535AE1100009EA5 /* LaunchScreen.storyboard */; };
+		8AC339FF2535AE1100009EA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC339EA2535AE1100009EA5 /* Main.storyboard */; };
+		8AC33A002535AE1100009EA5 /* ARSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339ED2535AE1100009EA5 /* ARSelectionViewController.swift */; };
+		8AC33A012535AE1100009EA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339EE2535AE1100009EA5 /* AppDelegate.swift */; };
+		8AC33A022535AE1200009EA5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AC339EF2535AE1100009EA5 /* Info.plist */; };
+		8AC33A032535AE1200009EA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339F02535AE1100009EA5 /* SceneDelegate.swift */; };
+		8AC33A042535AE1200009EA5 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8AC339F12535AE1100009EA5 /* LICENSE */; };
+		8AC33A052535AE1200009EA5 /* ARTagFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339F42535AE1100009EA5 /* ARTagFlowLayout.swift */; };
+		8AC33A062535AE1200009EA5 /* ARBasicConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339F52535AE1100009EA5 /* ARBasicConfiguration.swift */; };
+		8AC33A072535AE1200009EA5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339F62535AE1100009EA5 /* Extension.swift */; };
+		8AC33A082535AE1200009EA5 /* ARSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339F72535AE1100009EA5 /* ARSelectModel.swift */; };
+		8AC33A092535AE1200009EA5 /* ARSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339F92535AE1100009EA5 /* ARSelectableCell.swift */; };
+		8AC33A0A2535AE1200009EA5 /* ARSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339FA2535AE1100009EA5 /* ARSelectionType.swift */; };
+		8AC33A0B2535AE1200009EA5 /* ARSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339FB2535AE1100009EA5 /* ARSelectionView.swift */; };
+		8AC33A0C2535AE1200009EA5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8AC339FC2535AE1100009EA5 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8A58EA0F2528AA9E00D885D9 /* ARSelectableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARSelectableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A58EA122528AA9E00D885D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8A58EA142528AA9E00D885D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8A58EA192528AA9E00D885D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8A58EA1B2528AAA200D885D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8A58EA1E2528AAA200D885D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8A58EA202528AAA200D885D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A58EA262528AB9800D885D9 /* ARSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSelectionViewController.swift; sourceTree = "<group>"; };
-		8AC339B72535989D00009EA5 /* ARSelectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionType.swift; sourceTree = "<group>"; };
-		8AC339B82535989D00009EA5 /* ARBasicConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARBasicConfiguration.swift; sourceTree = "<group>"; };
-		8AC339B92535989D00009EA5 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		8AC339BA2535989D00009EA5 /* ARSelectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectModel.swift; sourceTree = "<group>"; };
-		8AC339E02535AD2800009EA5 /* ARSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectableCell.swift; sourceTree = "<group>"; };
-		8AC339E12535AD2800009EA5 /* ARSelectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionType.swift; sourceTree = "<group>"; };
-		8AC339E22535AD2800009EA5 /* ARSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionView.swift; sourceTree = "<group>"; };
+		8AC339E72535AE1100009EA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8AC339E92535AE1100009EA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8AC339EB2535AE1100009EA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8AC339ED2535AE1100009EA5 /* ARSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionViewController.swift; sourceTree = "<group>"; };
+		8AC339EE2535AE1100009EA5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8AC339EF2535AE1100009EA5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AC339F02535AE1100009EA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8AC339F12535AE1100009EA5 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		8AC339F42535AE1100009EA5 /* ARTagFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTagFlowLayout.swift; sourceTree = "<group>"; };
+		8AC339F52535AE1100009EA5 /* ARBasicConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARBasicConfiguration.swift; sourceTree = "<group>"; };
+		8AC339F62535AE1100009EA5 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		8AC339F72535AE1100009EA5 /* ARSelectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectModel.swift; sourceTree = "<group>"; };
+		8AC339F92535AE1100009EA5 /* ARSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectableCell.swift; sourceTree = "<group>"; };
+		8AC339FA2535AE1100009EA5 /* ARSelectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionType.swift; sourceTree = "<group>"; };
+		8AC339FB2535AE1100009EA5 /* ARSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionView.swift; sourceTree = "<group>"; };
+		8AC339FC2535AE1100009EA5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,15 +56,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8A2571AF25302ED000EECFA0 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				8AC339DF2535AD2800009EA5 /* Base */,
-				8AC339B62535989D00009EA5 /* Helper */,
-			);
-			path = Sources;
-			sourceTree = SOURCE_ROOT;
-		};
 		8A58EA062528AA9E00D885D9 = {
 			isa = PBXGroup;
 			children = (
@@ -79,43 +75,62 @@
 		8A58EA112528AA9E00D885D9 /* ARSelectableView */ = {
 			isa = PBXGroup;
 			children = (
-				8A58EA122528AA9E00D885D9 /* AppDelegate.swift */,
-				8A58EA142528AA9E00D885D9 /* SceneDelegate.swift */,
-				8A2571AF25302ED000EECFA0 /* Sources */,
-				8A58EA2F2528B1D000D885D9 /* ViewControllers */,
-				8A58EA182528AA9E00D885D9 /* Main.storyboard */,
-				8A58EA1B2528AAA200D885D9 /* Assets.xcassets */,
-				8A58EA1D2528AAA200D885D9 /* LaunchScreen.storyboard */,
-				8A58EA202528AAA200D885D9 /* Info.plist */,
+				8AC339F22535AE1100009EA5 /* ARSelectableView */,
+				8AC339E62535AE1100009EA5 /* Example */,
+				8AC339F12535AE1100009EA5 /* LICENSE */,
+				8AC339FC2535AE1100009EA5 /* README.md */,
 			);
 			path = ARSelectableView;
 			sourceTree = "<group>";
 		};
-		8A58EA2F2528B1D000D885D9 /* ViewControllers */ = {
+		8AC339E62535AE1100009EA5 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				8A58EA262528AB9800D885D9 /* ARSelectionViewController.swift */,
+				8AC339E72535AE1100009EA5 /* Assets.xcassets */,
+				8AC339E82535AE1100009EA5 /* LaunchScreen.storyboard */,
+				8AC339EA2535AE1100009EA5 /* Main.storyboard */,
+				8AC339EC2535AE1100009EA5 /* ViewControllers */,
+				8AC339EE2535AE1100009EA5 /* AppDelegate.swift */,
+				8AC339EF2535AE1100009EA5 /* Info.plist */,
+				8AC339F02535AE1100009EA5 /* SceneDelegate.swift */,
+			);
+			path = Example;
+			sourceTree = SOURCE_ROOT;
+		};
+		8AC339EC2535AE1100009EA5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8AC339ED2535AE1100009EA5 /* ARSelectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		8AC339B62535989D00009EA5 /* Helper */ = {
+		8AC339F22535AE1100009EA5 /* ARSelectableView */ = {
 			isa = PBXGroup;
 			children = (
-				8AC339B72535989D00009EA5 /* ARSelectionType.swift */,
-				8AC339B82535989D00009EA5 /* ARBasicConfiguration.swift */,
-				8AC339B92535989D00009EA5 /* Extension.swift */,
-				8AC339BA2535989D00009EA5 /* ARSelectModel.swift */,
+				8AC339F32535AE1100009EA5 /* Helper */,
+				8AC339F82535AE1100009EA5 /* Base */,
+			);
+			name = ARSelectableView;
+			sourceTree = "<group>";
+		};
+		8AC339F32535AE1100009EA5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8AC339F42535AE1100009EA5 /* ARTagFlowLayout.swift */,
+				8AC339F52535AE1100009EA5 /* ARBasicConfiguration.swift */,
+				8AC339F62535AE1100009EA5 /* Extension.swift */,
+				8AC339F72535AE1100009EA5 /* ARSelectModel.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		8AC339DF2535AD2800009EA5 /* Base */ = {
+		8AC339F82535AE1100009EA5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				8AC339E02535AD2800009EA5 /* ARSelectableCell.swift */,
-				8AC339E12535AD2800009EA5 /* ARSelectionType.swift */,
-				8AC339E22535AD2800009EA5 /* ARSelectionView.swift */,
+				8AC339F92535AE1100009EA5 /* ARSelectableCell.swift */,
+				8AC339FA2535AE1100009EA5 /* ARSelectionType.swift */,
+				8AC339FB2535AE1100009EA5 /* ARSelectionView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -178,9 +193,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A58EA1F2528AAA200D885D9 /* LaunchScreen.storyboard in Resources */,
-				8A58EA1C2528AAA200D885D9 /* Assets.xcassets in Resources */,
-				8A58EA1A2528AA9E00D885D9 /* Main.storyboard in Resources */,
+				8AC33A0C2535AE1200009EA5 /* README.md in Resources */,
+				8AC33A022535AE1200009EA5 /* Info.plist in Resources */,
+				8AC339FF2535AE1100009EA5 /* Main.storyboard in Resources */,
+				8AC339FD2535AE1100009EA5 /* Assets.xcassets in Resources */,
+				8AC339FE2535AE1100009EA5 /* LaunchScreen.storyboard in Resources */,
+				8AC33A042535AE1200009EA5 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,36 +209,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AC339E32535AD2800009EA5 /* ARSelectableCell.swift in Sources */,
-				8AC339BD2535989D00009EA5 /* Extension.swift in Sources */,
-				8AC339E52535AD2800009EA5 /* ARSelectionView.swift in Sources */,
-				8AC339BC2535989D00009EA5 /* ARBasicConfiguration.swift in Sources */,
-				8A58EA272528AB9800D885D9 /* ARSelectionViewController.swift in Sources */,
-				8A58EA132528AA9E00D885D9 /* AppDelegate.swift in Sources */,
-				8A58EA152528AA9E00D885D9 /* SceneDelegate.swift in Sources */,
-				8AC339E42535AD2800009EA5 /* ARSelectionType.swift in Sources */,
-				8AC339BE2535989D00009EA5 /* ARSelectModel.swift in Sources */,
-				8AC339BB2535989D00009EA5 /* ARSelectionType.swift in Sources */,
+				8AC33A092535AE1200009EA5 /* ARSelectableCell.swift in Sources */,
+				8AC33A012535AE1100009EA5 /* AppDelegate.swift in Sources */,
+				8AC33A0B2535AE1200009EA5 /* ARSelectionView.swift in Sources */,
+				8AC33A052535AE1200009EA5 /* ARTagFlowLayout.swift in Sources */,
+				8AC33A002535AE1100009EA5 /* ARSelectionViewController.swift in Sources */,
+				8AC33A072535AE1200009EA5 /* Extension.swift in Sources */,
+				8AC33A062535AE1200009EA5 /* ARBasicConfiguration.swift in Sources */,
+				8AC33A0A2535AE1200009EA5 /* ARSelectionType.swift in Sources */,
+				8AC33A032535AE1200009EA5 /* SceneDelegate.swift in Sources */,
+				8AC33A082535AE1200009EA5 /* ARSelectModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8A58EA182528AA9E00D885D9 /* Main.storyboard */ = {
+		8AC339E82535AE1100009EA5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8A58EA192528AA9E00D885D9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8A58EA1D2528AAA200D885D9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A58EA1E2528AAA200D885D9 /* Base */,
+				8AC339E92535AE1100009EA5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8AC339EA2535AE1100009EA5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8AC339EB2535AE1100009EA5 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
