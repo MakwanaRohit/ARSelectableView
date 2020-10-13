@@ -10,23 +10,22 @@
 		8A2571B325302ED000EECFA0 /* ARSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2571B025302ED000EECFA0 /* ARSelectableCell.swift */; };
 		8A2571B425302ED000EECFA0 /* ARTagFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2571B125302ED000EECFA0 /* ARTagFlowLayout.swift */; };
 		8A2571B525302ED000EECFA0 /* ARSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2571B225302ED000EECFA0 /* ARSelectionView.swift */; };
-		8A44F1D8253415E500296CEA /* ARBasicConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A44F1D7253415E500296CEA /* ARBasicConfiguration.swift */; };
 		8A58EA132528AA9E00D885D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58EA122528AA9E00D885D9 /* AppDelegate.swift */; };
 		8A58EA152528AA9E00D885D9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58EA142528AA9E00D885D9 /* SceneDelegate.swift */; };
 		8A58EA1A2528AA9E00D885D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A58EA182528AA9E00D885D9 /* Main.storyboard */; };
 		8A58EA1C2528AAA200D885D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A58EA1B2528AAA200D885D9 /* Assets.xcassets */; };
 		8A58EA1F2528AAA200D885D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A58EA1D2528AAA200D885D9 /* LaunchScreen.storyboard */; };
 		8A58EA272528AB9800D885D9 /* ARSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58EA262528AB9800D885D9 /* ARSelectionViewController.swift */; };
-		8A58EA2D2528B00600D885D9 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58EA2C2528B00600D885D9 /* Extension.swift */; };
-		8AEF0668252AD2BF006441A4 /* ARSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF0667252AD2BF006441A4 /* ARSelectionType.swift */; };
-		8AEF066B252AD4F8006441A4 /* ARSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF0669252AD4EA006441A4 /* ARSelectModel.swift */; };
+		8AC339BB2535989D00009EA5 /* ARSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339B72535989D00009EA5 /* ARSelectionType.swift */; };
+		8AC339BC2535989D00009EA5 /* ARBasicConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339B82535989D00009EA5 /* ARBasicConfiguration.swift */; };
+		8AC339BD2535989D00009EA5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339B92535989D00009EA5 /* Extension.swift */; };
+		8AC339BE2535989D00009EA5 /* ARSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC339BA2535989D00009EA5 /* ARSelectModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8A2571B025302ED000EECFA0 /* ARSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectableCell.swift; sourceTree = "<group>"; };
 		8A2571B125302ED000EECFA0 /* ARTagFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTagFlowLayout.swift; sourceTree = "<group>"; };
 		8A2571B225302ED000EECFA0 /* ARSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionView.swift; sourceTree = "<group>"; };
-		8A44F1D7253415E500296CEA /* ARBasicConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARBasicConfiguration.swift; sourceTree = "<group>"; };
 		8A58EA0F2528AA9E00D885D9 /* ARSelectableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARSelectableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A58EA122528AA9E00D885D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A58EA142528AA9E00D885D9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,9 +34,10 @@
 		8A58EA1E2528AAA200D885D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A58EA202528AAA200D885D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A58EA262528AB9800D885D9 /* ARSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSelectionViewController.swift; sourceTree = "<group>"; };
-		8A58EA2C2528B00600D885D9 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		8AEF0667252AD2BF006441A4 /* ARSelectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSelectionType.swift; sourceTree = "<group>"; };
-		8AEF0669252AD4EA006441A4 /* ARSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSelectModel.swift; sourceTree = "<group>"; };
+		8AC339B72535989D00009EA5 /* ARSelectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionType.swift; sourceTree = "<group>"; };
+		8AC339B82535989D00009EA5 /* ARBasicConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARBasicConfiguration.swift; sourceTree = "<group>"; };
+		8AC339B92535989D00009EA5 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		8AC339BA2535989D00009EA5 /* ARSelectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				8A2571B025302ED000EECFA0 /* ARSelectableCell.swift */,
+				8AC339B62535989D00009EA5 /* Helper */,
 				8A2571B125302ED000EECFA0 /* ARTagFlowLayout.swift */,
 				8A2571B225302ED000EECFA0 /* ARSelectionView.swift */,
 			);
@@ -83,7 +84,6 @@
 				8A58EA122528AA9E00D885D9 /* AppDelegate.swift */,
 				8A58EA142528AA9E00D885D9 /* SceneDelegate.swift */,
 				8A2571AF25302ED000EECFA0 /* Sources */,
-				8AEF066C252AD50A006441A4 /* Helper */,
 				8A58EA2F2528B1D000D885D9 /* ViewControllers */,
 				8A58EA182528AA9E00D885D9 /* Main.storyboard */,
 				8A58EA1B2528AAA200D885D9 /* Assets.xcassets */,
@@ -101,13 +101,13 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		8AEF066C252AD50A006441A4 /* Helper */ = {
+		8AC339B62535989D00009EA5 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				8A58EA2C2528B00600D885D9 /* Extension.swift */,
-				8AEF0667252AD2BF006441A4 /* ARSelectionType.swift */,
-				8A44F1D7253415E500296CEA /* ARBasicConfiguration.swift */,
-				8AEF0669252AD4EA006441A4 /* ARSelectModel.swift */,
+				8AC339B72535989D00009EA5 /* ARSelectionType.swift */,
+				8AC339B82535989D00009EA5 /* ARBasicConfiguration.swift */,
+				8AC339B92535989D00009EA5 /* Extension.swift */,
+				8AC339BA2535989D00009EA5 /* ARSelectModel.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -183,16 +183,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC339BD2535989D00009EA5 /* Extension.swift in Sources */,
 				8A2571B425302ED000EECFA0 /* ARTagFlowLayout.swift in Sources */,
 				8A2571B325302ED000EECFA0 /* ARSelectableCell.swift in Sources */,
+				8AC339BC2535989D00009EA5 /* ARBasicConfiguration.swift in Sources */,
 				8A2571B525302ED000EECFA0 /* ARSelectionView.swift in Sources */,
 				8A58EA272528AB9800D885D9 /* ARSelectionViewController.swift in Sources */,
-				8A44F1D8253415E500296CEA /* ARBasicConfiguration.swift in Sources */,
-				8AEF0668252AD2BF006441A4 /* ARSelectionType.swift in Sources */,
 				8A58EA132528AA9E00D885D9 /* AppDelegate.swift in Sources */,
-				8A58EA2D2528B00600D885D9 /* Extension.swift in Sources */,
-				8AEF066B252AD4F8006441A4 /* ARSelectModel.swift in Sources */,
 				8A58EA152528AA9E00D885D9 /* SceneDelegate.swift in Sources */,
+				8AC339BE2535989D00009EA5 /* ARSelectModel.swift in Sources */,
+				8AC339BB2535989D00009EA5 /* ARSelectionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
