@@ -7,37 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8AC33AA22535C09F00009EA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AA12535C09F00009EA5 /* AppDelegate.swift */; };
-		8AC33AA42535C09F00009EA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AA32535C09F00009EA5 /* SceneDelegate.swift */; };
-		8AC33AA92535C09F00009EA5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC33AA72535C09F00009EA5 /* Main.storyboard */; };
-		8AC33AAB2535C0A100009EA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AC33AAA2535C0A100009EA5 /* Assets.xcassets */; };
-		8AC33AAE2535C0A100009EA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AC33AAC2535C0A100009EA5 /* LaunchScreen.storyboard */; };
-		8AC33AB72535C11900009EA5 /* ARSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AB62535C11900009EA5 /* ARSelectionViewController.swift */; };
-		8AC33AE42535C3E900009EA5 /* ARTagFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33ADC2535C3E900009EA5 /* ARTagFlowLayout.swift */; };
-		8AC33AE52535C3E900009EA5 /* ARBasicConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33ADD2535C3E900009EA5 /* ARBasicConfiguration.swift */; };
-		8AC33AE62535C3E900009EA5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33ADE2535C3E900009EA5 /* Extension.swift */; };
-		8AC33AE72535C3E900009EA5 /* ARSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33ADF2535C3E900009EA5 /* ARSelectModel.swift */; };
-		8AC33AE82535C3E900009EA5 /* ARSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AE12535C3E900009EA5 /* ARSelectableCell.swift */; };
-		8AC33AE92535C3E900009EA5 /* ARSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AE22535C3E900009EA5 /* ARSelectionType.swift */; };
-		8AC33AEA2535C3E900009EA5 /* ARSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC33AE32535C3E900009EA5 /* ARSelectionView.swift */; };
+		8AF8954A2536BB0D007CFA5B /* round_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF895372536BB0D007CFA5B /* round_filled@2x.png */; };
+		8AF8954B2536BB0D007CFA5B /* round_filled@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF895382536BB0D007CFA5B /* round_filled@3x.png */; };
+		8AF8954C2536BB0D007CFA5B /* unchecked_checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF895392536BB0D007CFA5B /* unchecked_checkbox@2x.png */; };
+		8AF8954D2536BB0D007CFA5B /* round_empty@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8953A2536BB0D007CFA5B /* round_empty@3x.png */; };
+		8AF8954E2536BB0D007CFA5B /* round_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8953B2536BB0D007CFA5B /* round_empty@2x.png */; };
+		8AF8954F2536BB0D007CFA5B /* unchecked_checkbox@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8953C2536BB0D007CFA5B /* unchecked_checkbox@3x.png */; };
+		8AF895502536BB0D007CFA5B /* checked_checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8953D2536BB0D007CFA5B /* checked_checkbox@2x.png */; };
+		8AF895512536BB0D007CFA5B /* checked_checkbox@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8953E2536BB0D007CFA5B /* checked_checkbox@3x.png */; };
+		8AF895522536BB0D007CFA5B /* ARTagFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895412536BB0D007CFA5B /* ARTagFlowLayout.swift */; };
+		8AF895532536BB0D007CFA5B /* ARBasicConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895422536BB0D007CFA5B /* ARBasicConfiguration.swift */; };
+		8AF895542536BB0D007CFA5B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895432536BB0D007CFA5B /* Extension.swift */; };
+		8AF895552536BB0D007CFA5B /* ARSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895442536BB0D007CFA5B /* ARSelectModel.swift */; };
+		8AF895562536BB0D007CFA5B /* ARSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895462536BB0D007CFA5B /* ARSelectableCell.swift */; };
+		8AF895572536BB0D007CFA5B /* ARSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895472536BB0D007CFA5B /* ARSelectionType.swift */; };
+		8AF895582536BB0D007CFA5B /* ARSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895482536BB0D007CFA5B /* ARSelectionView.swift */; };
+		8AF895652536BCF7007CFA5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8955B2536BCF7007CFA5B /* Assets.xcassets */; };
+		8AF895662536BCF7007CFA5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8955C2536BCF7007CFA5B /* LaunchScreen.storyboard */; };
+		8AF895672536BCF7007CFA5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8955E2536BCF7007CFA5B /* Main.storyboard */; };
+		8AF895682536BCF7007CFA5B /* ARSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895612536BCF7007CFA5B /* ARSelectionViewController.swift */; };
+		8AF895692536BCF7007CFA5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895622536BCF7007CFA5B /* AppDelegate.swift */; };
+		8AF8956B2536BCF7007CFA5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895642536BCF7007CFA5B /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8AC33A9E2535C09F00009EA5 /* ARSelectableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARSelectableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AC33AA12535C09F00009EA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8AC33AA32535C09F00009EA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8AC33AA82535C09F00009EA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8AC33AAA2535C0A100009EA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8AC33AAD2535C0A100009EA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8AC33AAF2535C0A100009EA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8AC33AB62535C11900009EA5 /* ARSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionViewController.swift; sourceTree = "<group>"; };
-		8AC33ADC2535C3E900009EA5 /* ARTagFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTagFlowLayout.swift; sourceTree = "<group>"; };
-		8AC33ADD2535C3E900009EA5 /* ARBasicConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARBasicConfiguration.swift; sourceTree = "<group>"; };
-		8AC33ADE2535C3E900009EA5 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		8AC33ADF2535C3E900009EA5 /* ARSelectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectModel.swift; sourceTree = "<group>"; };
-		8AC33AE12535C3E900009EA5 /* ARSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectableCell.swift; sourceTree = "<group>"; };
-		8AC33AE22535C3E900009EA5 /* ARSelectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionType.swift; sourceTree = "<group>"; };
-		8AC33AE32535C3E900009EA5 /* ARSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionView.swift; sourceTree = "<group>"; };
+		8AF895352536BB0D007CFA5B /* ARSelectableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSelectableView.h; sourceTree = "<group>"; };
+		8AF895372536BB0D007CFA5B /* round_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "round_filled@2x.png"; sourceTree = "<group>"; };
+		8AF895382536BB0D007CFA5B /* round_filled@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "round_filled@3x.png"; sourceTree = "<group>"; };
+		8AF895392536BB0D007CFA5B /* unchecked_checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked_checkbox@2x.png"; sourceTree = "<group>"; };
+		8AF8953A2536BB0D007CFA5B /* round_empty@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "round_empty@3x.png"; sourceTree = "<group>"; };
+		8AF8953B2536BB0D007CFA5B /* round_empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "round_empty@2x.png"; sourceTree = "<group>"; };
+		8AF8953C2536BB0D007CFA5B /* unchecked_checkbox@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked_checkbox@3x.png"; sourceTree = "<group>"; };
+		8AF8953D2536BB0D007CFA5B /* checked_checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checked_checkbox@2x.png"; sourceTree = "<group>"; };
+		8AF8953E2536BB0D007CFA5B /* checked_checkbox@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checked_checkbox@3x.png"; sourceTree = "<group>"; };
+		8AF895412536BB0D007CFA5B /* ARTagFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTagFlowLayout.swift; sourceTree = "<group>"; };
+		8AF895422536BB0D007CFA5B /* ARBasicConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARBasicConfiguration.swift; sourceTree = "<group>"; };
+		8AF895432536BB0D007CFA5B /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		8AF895442536BB0D007CFA5B /* ARSelectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectModel.swift; sourceTree = "<group>"; };
+		8AF895462536BB0D007CFA5B /* ARSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectableCell.swift; sourceTree = "<group>"; };
+		8AF895472536BB0D007CFA5B /* ARSelectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionType.swift; sourceTree = "<group>"; };
+		8AF895482536BB0D007CFA5B /* ARSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionView.swift; sourceTree = "<group>"; };
+		8AF8955B2536BCF7007CFA5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8AF8955D2536BCF7007CFA5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8AF8955F2536BCF7007CFA5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8AF895612536BCF7007CFA5B /* ARSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSelectionViewController.swift; sourceTree = "<group>"; };
+		8AF895622536BCF7007CFA5B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8AF895642536BCF7007CFA5B /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8AF8956D2536BF07007CFA5B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +71,8 @@
 		8AC33A952535C09F00009EA5 = {
 			isa = PBXGroup;
 			children = (
-				8AC33AA02535C09F00009EA5 /* ARSelectableView */,
+				8AF8955A2536BCF7007CFA5B /* Example */,
+				8AF895342536BB0D007CFA5B /* ARSelectableView */,
 				8AC33A9F2535C09F00009EA5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,57 +85,81 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8AC33AA02535C09F00009EA5 /* ARSelectableView */ = {
+		8AF895342536BB0D007CFA5B /* ARSelectableView */ = {
 			isa = PBXGroup;
 			children = (
-				8AC33ADA2535C3E900009EA5 /* Sources */,
-				8AC33AB52535C11900009EA5 /* ViewControllers */,
-				8AC33AA12535C09F00009EA5 /* AppDelegate.swift */,
-				8AC33AA32535C09F00009EA5 /* SceneDelegate.swift */,
-				8AC33AA72535C09F00009EA5 /* Main.storyboard */,
-				8AC33AAA2535C0A100009EA5 /* Assets.xcassets */,
-				8AC33AAC2535C0A100009EA5 /* LaunchScreen.storyboard */,
-				8AC33AAF2535C0A100009EA5 /* Info.plist */,
+				8AF895352536BB0D007CFA5B /* ARSelectableView.h */,
+				8AF895362536BB0D007CFA5B /* Images */,
+				8AF8953F2536BB0D007CFA5B /* Classes */,
 			);
 			path = ARSelectableView;
 			sourceTree = "<group>";
 		};
-		8AC33AB52535C11900009EA5 /* ViewControllers */ = {
+		8AF895362536BB0D007CFA5B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				8AC33AB62535C11900009EA5 /* ARSelectionViewController.swift */,
+				8AF895372536BB0D007CFA5B /* round_filled@2x.png */,
+				8AF895382536BB0D007CFA5B /* round_filled@3x.png */,
+				8AF895392536BB0D007CFA5B /* unchecked_checkbox@2x.png */,
+				8AF8953A2536BB0D007CFA5B /* round_empty@3x.png */,
+				8AF8953B2536BB0D007CFA5B /* round_empty@2x.png */,
+				8AF8953C2536BB0D007CFA5B /* unchecked_checkbox@3x.png */,
+				8AF8953D2536BB0D007CFA5B /* checked_checkbox@2x.png */,
+				8AF8953E2536BB0D007CFA5B /* checked_checkbox@3x.png */,
 			);
-			path = ViewControllers;
+			path = Images;
 			sourceTree = "<group>";
 		};
-		8AC33ADA2535C3E900009EA5 /* Sources */ = {
+		8AF8953F2536BB0D007CFA5B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				8AC33ADB2535C3E900009EA5 /* Helper */,
-				8AC33AE02535C3E900009EA5 /* Base */,
+				8AF895402536BB0D007CFA5B /* Helper */,
+				8AF895452536BB0D007CFA5B /* Base */,
 			);
-			path = Sources;
+			path = Classes;
 			sourceTree = "<group>";
 		};
-		8AC33ADB2535C3E900009EA5 /* Helper */ = {
+		8AF895402536BB0D007CFA5B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				8AC33ADC2535C3E900009EA5 /* ARTagFlowLayout.swift */,
-				8AC33ADD2535C3E900009EA5 /* ARBasicConfiguration.swift */,
-				8AC33ADE2535C3E900009EA5 /* Extension.swift */,
-				8AC33ADF2535C3E900009EA5 /* ARSelectModel.swift */,
+				8AF895412536BB0D007CFA5B /* ARTagFlowLayout.swift */,
+				8AF895422536BB0D007CFA5B /* ARBasicConfiguration.swift */,
+				8AF895432536BB0D007CFA5B /* Extension.swift */,
+				8AF895442536BB0D007CFA5B /* ARSelectModel.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		8AC33AE02535C3E900009EA5 /* Base */ = {
+		8AF895452536BB0D007CFA5B /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				8AC33AE12535C3E900009EA5 /* ARSelectableCell.swift */,
-				8AC33AE22535C3E900009EA5 /* ARSelectionType.swift */,
-				8AC33AE32535C3E900009EA5 /* ARSelectionView.swift */,
+				8AF895462536BB0D007CFA5B /* ARSelectableCell.swift */,
+				8AF895472536BB0D007CFA5B /* ARSelectionType.swift */,
+				8AF895482536BB0D007CFA5B /* ARSelectionView.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		8AF8955A2536BCF7007CFA5B /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				8AF8955B2536BCF7007CFA5B /* Assets.xcassets */,
+				8AF8955C2536BCF7007CFA5B /* LaunchScreen.storyboard */,
+				8AF8955E2536BCF7007CFA5B /* Main.storyboard */,
+				8AF895602536BCF7007CFA5B /* ViewControllers */,
+				8AF895622536BCF7007CFA5B /* AppDelegate.swift */,
+				8AF895642536BCF7007CFA5B /* SceneDelegate.swift */,
+				8AF8956D2536BF07007CFA5B /* Info.plist */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		8AF895602536BCF7007CFA5B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8AF895612536BCF7007CFA5B /* ARSelectionViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,9 +220,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AC33AAE2535C0A100009EA5 /* LaunchScreen.storyboard in Resources */,
-				8AC33AAB2535C0A100009EA5 /* Assets.xcassets in Resources */,
-				8AC33AA92535C09F00009EA5 /* Main.storyboard in Resources */,
+				8AF8954B2536BB0D007CFA5B /* round_filled@3x.png in Resources */,
+				8AF8954A2536BB0D007CFA5B /* round_filled@2x.png in Resources */,
+				8AF8954E2536BB0D007CFA5B /* round_empty@2x.png in Resources */,
+				8AF895662536BCF7007CFA5B /* LaunchScreen.storyboard in Resources */,
+				8AF8954F2536BB0D007CFA5B /* unchecked_checkbox@3x.png in Resources */,
+				8AF895672536BCF7007CFA5B /* Main.storyboard in Resources */,
+				8AF895502536BB0D007CFA5B /* checked_checkbox@2x.png in Resources */,
+				8AF8954D2536BB0D007CFA5B /* round_empty@3x.png in Resources */,
+				8AF895512536BB0D007CFA5B /* checked_checkbox@3x.png in Resources */,
+				8AF895652536BCF7007CFA5B /* Assets.xcassets in Resources */,
+				8AF8954C2536BB0D007CFA5B /* unchecked_checkbox@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,36 +241,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AC33AE82535C3E900009EA5 /* ARSelectableCell.swift in Sources */,
-				8AC33AA22535C09F00009EA5 /* AppDelegate.swift in Sources */,
-				8AC33AEA2535C3E900009EA5 /* ARSelectionView.swift in Sources */,
-				8AC33AE42535C3E900009EA5 /* ARTagFlowLayout.swift in Sources */,
-				8AC33AB72535C11900009EA5 /* ARSelectionViewController.swift in Sources */,
-				8AC33AE62535C3E900009EA5 /* Extension.swift in Sources */,
-				8AC33AE52535C3E900009EA5 /* ARBasicConfiguration.swift in Sources */,
-				8AC33AE92535C3E900009EA5 /* ARSelectionType.swift in Sources */,
-				8AC33AA42535C09F00009EA5 /* SceneDelegate.swift in Sources */,
-				8AC33AE72535C3E900009EA5 /* ARSelectModel.swift in Sources */,
+				8AF895562536BB0D007CFA5B /* ARSelectableCell.swift in Sources */,
+				8AF895582536BB0D007CFA5B /* ARSelectionView.swift in Sources */,
+				8AF895682536BCF7007CFA5B /* ARSelectionViewController.swift in Sources */,
+				8AF895692536BCF7007CFA5B /* AppDelegate.swift in Sources */,
+				8AF895522536BB0D007CFA5B /* ARTagFlowLayout.swift in Sources */,
+				8AF8956B2536BCF7007CFA5B /* SceneDelegate.swift in Sources */,
+				8AF895542536BB0D007CFA5B /* Extension.swift in Sources */,
+				8AF895532536BB0D007CFA5B /* ARBasicConfiguration.swift in Sources */,
+				8AF895572536BB0D007CFA5B /* ARSelectionType.swift in Sources */,
+				8AF895552536BB0D007CFA5B /* ARSelectModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8AC33AA72535C09F00009EA5 /* Main.storyboard */ = {
+		8AF8955C2536BCF7007CFA5B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8AC33AA82535C09F00009EA5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8AC33AAC2535C0A100009EA5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8AC33AAD2535C0A100009EA5 /* Base */,
+				8AF8955D2536BCF7007CFA5B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8AF8955E2536BCF7007CFA5B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8AF8955F2536BCF7007CFA5B /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -344,14 +394,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ARSelectableView/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = G34KQT9TPD;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.ARSelectableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "SA Star";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -361,14 +415,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ARSelectableView/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = G34KQT9TPD;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.ARSelectableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "SA Star";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
