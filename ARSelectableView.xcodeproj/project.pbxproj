@@ -143,12 +143,12 @@
 		8AF8955A2536BCF7007CFA5B /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				8AF895622536BCF7007CFA5B /* AppDelegate.swift */,
+				8AF895642536BCF7007CFA5B /* SceneDelegate.swift */,
+				8AF895602536BCF7007CFA5B /* ViewControllers */,
 				8AF8955B2536BCF7007CFA5B /* Assets.xcassets */,
 				8AF8955C2536BCF7007CFA5B /* LaunchScreen.storyboard */,
 				8AF8955E2536BCF7007CFA5B /* Main.storyboard */,
-				8AF895602536BCF7007CFA5B /* ViewControllers */,
-				8AF895622536BCF7007CFA5B /* AppDelegate.swift */,
-				8AF895642536BCF7007CFA5B /* SceneDelegate.swift */,
 				8AF8956D2536BF07007CFA5B /* Info.plist */,
 			);
 			path = Example;
