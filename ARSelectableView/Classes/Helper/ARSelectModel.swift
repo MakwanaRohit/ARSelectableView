@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ARSelectModel {
+public class ARSelectModel {
 
     var title: String
     var isSelected: Bool

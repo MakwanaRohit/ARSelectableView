@@ -12,7 +12,7 @@ protocol ARSelectionDelegate: AnyObject {
     func ARSelectionAction(_ selectItem: ARSelectModel)
 }
 
-class ARSelectableCell: UICollectionViewCell {
+public class ARSelectableCell: UICollectionViewCell {
 
     // MARK: - Declared Variables
     var fittingSize: CGSize {

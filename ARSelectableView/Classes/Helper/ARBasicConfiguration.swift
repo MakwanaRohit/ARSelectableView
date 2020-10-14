@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 // CollectionView layout options
 struct ARCollectionLayoutDefaults {
 

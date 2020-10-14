@@ -12,7 +12,7 @@ protocol ARSelectionViewDelegate: class {
     func selectionMaxLimitReached( _ selectionView: ARSelectionView)
 }
 
-final class ARSelectionView: UIView {
+class ARSelectionView: UIView {
 
     // MARK: - Declared Variables
     static let DEFAULT_LINE_SPACING: CGFloat = 0
