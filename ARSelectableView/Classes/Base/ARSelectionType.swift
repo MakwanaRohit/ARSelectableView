@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum ARSelectionType: Int {
+public enum ARSelectionType: Int {
 
     case radio
     case checkbox

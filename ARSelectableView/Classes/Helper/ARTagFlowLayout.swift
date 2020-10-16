@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ARFlowLayout: UICollectionViewFlowLayout {
+class ARFlowLayout: UICollectionViewFlowLayout {
 
     typealias AlignType = (lastRow: Int, lastMargin: CGFloat)
     var align: ARSelectionAlignment = .left

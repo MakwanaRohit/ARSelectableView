@@ -9,7 +9,7 @@
 import UIKit
 
 // CollectionView layout options
-struct ARCollectionLayoutDefaults {
+public struct ARCollectionLayoutDefaults {
 
     public let sectionInset: UIEdgeInsets
     public let lineSpacing: CGFloat
@@ -29,7 +29,7 @@ struct ARCollectionLayoutDefaults {
 }
 
 // CollectionView cell defaults
-struct ARCellDesignDefaults {
+public struct ARCellDesignDefaults {
 
     public var selectedButtonColor : UIColor = .black
     public var defaultButtonColor : UIColor = .black
