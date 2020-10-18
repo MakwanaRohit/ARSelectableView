@@ -8,11 +8,12 @@
 
 import UIKit
 
+
 protocol ARSelectionViewDelegate: class {
     func selectionMaxLimitReached( _ selectionView: ARSelectionView)
 }
 
-class ARSelectionView: UIView {
+public final class ARSelectionView: UIView {
 
     // MARK: - Declared Variables
     static let DEFAULT_LINE_SPACING: CGFloat = 0
@@ -20,11 +21,11 @@ class ARSelectionView: UIView {
     weak var delegate: ARSelectionViewDelegate?
 
     private var reseource: (cell: ARSelectableCell?, identifier: String)?
-    public var cellDesignDefaults = ARCellDesignDefaults()
+    var cellDesignDefaults = ARCellDesignDefaults()
     public lazy var tagLayout = ARFlowLayout()
     public var maxSelectCount : Int?
 
-    public var options: ARCollectionLayoutDefaults = ARCollectionLayoutDefaults() {
+    var options: ARCollectionLayoutDefaults = ARCollectionLayoutDefaults() {
         didSet{
             tagLayout.sectionInset = self.options.sectionInset
             tagLayout.minimumInteritemSpacing = options.interitemSpacing
@@ -41,7 +42,7 @@ class ARSelectionView: UIView {
         }
     }
 
-    public var alignment: ARSelectionAlignment? = .left {
+    var alignment: ARSelectionAlignment? = .left {
         didSet {
             if selectionType == .tags && options.scrollDirection != .horizontal {
                 tagLayout.align = self.alignment == .right ? .right : .left
@@ -53,7 +54,7 @@ class ARSelectionView: UIView {
         }
     }
 
-    public var selectionType : ARSelectionType? {
+    var selectionType : ARSelectionType? {
         didSet {
 
             if selectionType == .tags && options.scrollDirection != .horizontal {
@@ -148,11 +149,11 @@ class ARSelectionView: UIView {
 // MARK: - UICollectionView Delegate & DataSource
 extension ARSelectionView: UICollectionViewDelegate, UICollectionViewDataSource {
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         if let cell = collectionView.dequeueCell(ARSelectableCell.self, indexpath: indexPath) {
 
@@ -165,7 +166,7 @@ extension ARSelectionView: UICollectionViewDelegate, UICollectionViewDataSource 
         return UICollectionViewCell()
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         self.updateSelection(self.items[indexPath.row])
     }

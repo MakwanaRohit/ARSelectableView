@@ -7,6 +7,14 @@
 //
 
 import UIKit
+/**
+Enum of selection types used for ARSelectableView.
+
+- radio:              selection type radio.
+- checkbox:       selection type checkbox.
+- tags:               selection type tags.
+ 
+**/
 
 enum ARSelectionType: Int {
 
