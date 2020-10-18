@@ -16,14 +16,14 @@ protocol ARSelectionViewDelegate: class {
 public final class ARSelectionView: UIView {
 
     // MARK: - Declared Variables
-    static let DEFAULT_LINE_SPACING: CGFloat = 0
-    static let DEFAULT_INTERITEM_SPACING : CGFloat = 0
+    public static let DEFAULT_LINE_SPACING: CGFloat = 0
+    public static let DEFAULT_INTERITEM_SPACING : CGFloat = 0
     weak var delegate: ARSelectionViewDelegate?
 
     private var reseource: (cell: ARSelectableCell?, identifier: String)?
     var cellDesignDefaults = ARCellDesignDefaults()
-    public lazy var tagLayout = ARFlowLayout()
-    public var maxSelectCount : Int?
+    lazy var tagLayout = ARFlowLayout()
+    var maxSelectCount : Int?
 
     var options: ARCollectionLayoutDefaults = ARCollectionLayoutDefaults() {
         didSet{

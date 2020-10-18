@@ -16,7 +16,7 @@ Enum of selection types used for ARSelectableView.
  
 **/
 
-enum ARSelectionType: Int {
+public enum ARSelectionType: Int {
 
     case radio
     case checkbox
