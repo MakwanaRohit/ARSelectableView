@@ -9,7 +9,7 @@
 import UIKit
 
 
-protocol ARSelectionViewDelegate: class {
+protocol ARSelectionViewDelegate: AnyObject {
     func selectionMaxLimitReached( _ selectionView: ARSelectionView)
 }
 

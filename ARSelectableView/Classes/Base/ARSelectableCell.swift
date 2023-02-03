@@ -87,6 +87,7 @@ class ARSelectableCell: UICollectionViewCell {
         self.titleLabel.removeFromSuperview()
 
         self.addSubview(self.stackView)
+		self.stackView.backgroundColor = .clear
         self.stackView.addArrangedSubview(self.selectButton)
         self.stackView.addArrangedSubview(self.titleLabel)
 
