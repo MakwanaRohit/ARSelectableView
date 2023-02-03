@@ -10,9 +10,9 @@
 
 ## Requirements
 
-- iOS 11.0+
-- Xcode 11.0+
-- Swift 4.2+
+- iOS 13.0+
+- Xcode 13.0+
+- Swift 5+
 
 ## Usage
 
