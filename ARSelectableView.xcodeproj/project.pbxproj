@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8AF8954A2536BB0D007CFA5B /* round_filled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF895372536BB0D007CFA5B /* round_filled@2x.png */; };
-		8AF8954B2536BB0D007CFA5B /* round_filled@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF895382536BB0D007CFA5B /* round_filled@3x.png */; };
-		8AF8954C2536BB0D007CFA5B /* unchecked_checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF895392536BB0D007CFA5B /* unchecked_checkbox@2x.png */; };
-		8AF8954D2536BB0D007CFA5B /* round_empty@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8953A2536BB0D007CFA5B /* round_empty@3x.png */; };
-		8AF8954E2536BB0D007CFA5B /* round_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8953B2536BB0D007CFA5B /* round_empty@2x.png */; };
-		8AF8954F2536BB0D007CFA5B /* unchecked_checkbox@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8953C2536BB0D007CFA5B /* unchecked_checkbox@3x.png */; };
-		8AF895502536BB0D007CFA5B /* checked_checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8953D2536BB0D007CFA5B /* checked_checkbox@2x.png */; };
-		8AF895512536BB0D007CFA5B /* checked_checkbox@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF8953E2536BB0D007CFA5B /* checked_checkbox@3x.png */; };
 		8AF895522536BB0D007CFA5B /* ARTagFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895412536BB0D007CFA5B /* ARTagFlowLayout.swift */; };
 		8AF895532536BB0D007CFA5B /* ARBasicConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895422536BB0D007CFA5B /* ARBasicConfiguration.swift */; };
 		8AF895542536BB0D007CFA5B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF895432536BB0D007CFA5B /* Extension.swift */; };
@@ -33,14 +25,6 @@
 /* Begin PBXFileReference section */
 		8AC33A9E2535C09F00009EA5 /* ARSelectableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARSelectableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF895352536BB0D007CFA5B /* ARSelectableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSelectableView.h; sourceTree = "<group>"; };
-		8AF895372536BB0D007CFA5B /* round_filled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "round_filled@2x.png"; sourceTree = "<group>"; };
-		8AF895382536BB0D007CFA5B /* round_filled@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "round_filled@3x.png"; sourceTree = "<group>"; };
-		8AF895392536BB0D007CFA5B /* unchecked_checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked_checkbox@2x.png"; sourceTree = "<group>"; };
-		8AF8953A2536BB0D007CFA5B /* round_empty@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "round_empty@3x.png"; sourceTree = "<group>"; };
-		8AF8953B2536BB0D007CFA5B /* round_empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "round_empty@2x.png"; sourceTree = "<group>"; };
-		8AF8953C2536BB0D007CFA5B /* unchecked_checkbox@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked_checkbox@3x.png"; sourceTree = "<group>"; };
-		8AF8953D2536BB0D007CFA5B /* checked_checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checked_checkbox@2x.png"; sourceTree = "<group>"; };
-		8AF8953E2536BB0D007CFA5B /* checked_checkbox@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checked_checkbox@3x.png"; sourceTree = "<group>"; };
 		8AF895412536BB0D007CFA5B /* ARTagFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTagFlowLayout.swift; sourceTree = "<group>"; };
 		8AF895422536BB0D007CFA5B /* ARBasicConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARBasicConfiguration.swift; sourceTree = "<group>"; };
 		8AF895432536BB0D007CFA5B /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -89,25 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				8AF895352536BB0D007CFA5B /* ARSelectableView.h */,
-				8AF895362536BB0D007CFA5B /* Images */,
 				8AF8953F2536BB0D007CFA5B /* Classes */,
 			);
 			path = ARSelectableView;
-			sourceTree = "<group>";
-		};
-		8AF895362536BB0D007CFA5B /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				8AF895372536BB0D007CFA5B /* round_filled@2x.png */,
-				8AF895382536BB0D007CFA5B /* round_filled@3x.png */,
-				8AF895392536BB0D007CFA5B /* unchecked_checkbox@2x.png */,
-				8AF8953A2536BB0D007CFA5B /* round_empty@3x.png */,
-				8AF8953B2536BB0D007CFA5B /* round_empty@2x.png */,
-				8AF8953C2536BB0D007CFA5B /* unchecked_checkbox@3x.png */,
-				8AF8953D2536BB0D007CFA5B /* checked_checkbox@2x.png */,
-				8AF8953E2536BB0D007CFA5B /* checked_checkbox@3x.png */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		8AF8953F2536BB0D007CFA5B /* Classes */ = {
@@ -220,17 +188,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AF8954B2536BB0D007CFA5B /* round_filled@3x.png in Resources */,
-				8AF8954A2536BB0D007CFA5B /* round_filled@2x.png in Resources */,
-				8AF8954E2536BB0D007CFA5B /* round_empty@2x.png in Resources */,
 				8AF895662536BCF7007CFA5B /* LaunchScreen.storyboard in Resources */,
-				8AF8954F2536BB0D007CFA5B /* unchecked_checkbox@3x.png in Resources */,
 				8AF895672536BCF7007CFA5B /* Main.storyboard in Resources */,
-				8AF895502536BB0D007CFA5B /* checked_checkbox@2x.png in Resources */,
-				8AF8954D2536BB0D007CFA5B /* round_empty@3x.png in Resources */,
-				8AF895512536BB0D007CFA5B /* checked_checkbox@3x.png in Resources */,
 				8AF895652536BCF7007CFA5B /* Assets.xcassets in Resources */,
-				8AF8954C2536BB0D007CFA5B /* unchecked_checkbox@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

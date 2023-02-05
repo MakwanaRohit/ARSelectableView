@@ -22,21 +22,21 @@ public enum ARSelectionType: Int {
     case checkbox
     case tags
 
-    var defaultImage: UIImage {
+    var defaultImage: UIImage? {
         switch self {
         case .radio:
-            return #imageLiteral(resourceName: "round_empty")
+            return UIImage(systemName: "circle")
         case .checkbox, .tags:
-            return #imageLiteral(resourceName: "unchecked_checkbox")
+            return UIImage(systemName: "square")
         }
     }
 
-    var selectedImage: UIImage {
+    var selectedImage: UIImage? {
         switch self {
         case .radio:
-            return #imageLiteral(resourceName: "round_filled")
+            return UIImage(systemName: "circle.inset.filled")
         case .checkbox, .tags:
-            return #imageLiteral(resourceName: "checked_checkbox")
+            return UIImage(systemName: "checkmark.square.fill")
         }
     }
 }

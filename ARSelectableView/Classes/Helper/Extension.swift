@@ -21,9 +21,9 @@ extension UICollectionView {
 
 extension UIButton {
 
-    func setTintImage(_ image: UIImage, tintColor color: UIColor, state: UIControl.State) {
+    func setTintImage(_ image: UIImage?, tintColor color: UIColor, state: UIControl.State) {
 
-        let tintedImage = image.withRenderingMode(.alwaysTemplate)
+        let tintedImage = image?.withRenderingMode(.alwaysTemplate)
         self.setImage(tintedImage, for: state)
         self.tintColor = color
     }
