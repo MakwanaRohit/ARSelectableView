@@ -49,13 +49,13 @@ Set items
 
 
 ```swift
-self.selectionView?.items = [ARSelectModel(title: "Blues Music"), ARSelectModel(title: "Jazz Music")]
+self.selectionView.configureItems([ARSelectModel(title: "Blues Music"), ARSelectModel(title: "Jazz Music")])
 ```
 
 ### Change properties
 
-- `defaultButtonColor` : Seletion button default Color (UIColor.black)
-- `selectedButtonColor`  : Seletion button selected Color (UIColor.black)
+- `defaultSelectionColor` : Seletion button default Color (UIColor.black)
+- `selectedSelectionColor`  : Seletion button selected Color (UIColor.black)
 - `defaultTitleColor` :  Default Title Color (UIColor.black)
 - `selectedTitleColor` : Selected Title Color (UIColor.black)
 - `defaultCellBGColor` : Default Cell BG Color (UIColor.white) 

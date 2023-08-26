@@ -28,6 +28,8 @@ class ARSelectionViewController: UIViewController {
                  "Blues Music", "Jazz Music", "Rhythm and Blues Music", "Rock Music",
                  "Rock and Roll Music", "Rock Music", "Country Music", "Soul Music",
                  "Dance Music", "Hip Hop Music", "Dance Music","Hip Hop Music"]
+    
+    var items = [ARSelectModel]()
 
     fileprivate var selectionView: ARSelectionView?
     var alignment: ARSelectionAlignment = ARSelectionAlignment.left {
@@ -50,14 +52,14 @@ class ARSelectionViewController: UIViewController {
                         designDefaults.defaultCellBGColor = UIColor.lightGray.withAlphaComponent(0.3)
                         designDefaults.selectedTitleColor = .white
                         designDefaults.selectedCellBGColor = .black
-                        designDefaults.selectedButtonColor = .white
+                        designDefaults.selectedSelectionColor = .white
                         designDefaults.rowHeight = 40
                         designDefaults.cornerRadius = 5 
                         self.selectionView?.cellDesignDefaults = designDefaults
                         self.selectionView?.options = ARCollectionLayoutDefaults(sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10),lineSpacing: 10, interitemSpacing: 10, scrollDirection: .vertical)
                     }
                     else {
-                        self.selectionView?.items.forEach {$0.isSelected = false}
+                        self.selectionView?.resetSelection()
                         self.selectionView?.cellDesignDefaults = ARCellDesignDefaults()
                         self.selectionView?.options = ARCollectionLayoutDefaults(scrollDirection: self.scrollDirection == .vertical ? .vertical: .horizontal)
                     }
@@ -98,7 +100,6 @@ class ARSelectionViewController: UIViewController {
 
         self.selectionView = ARSelectionView(frame: CGRect.zero)
         self.selectionView?.delegate = self
-//        self.selectionView?.maxSelectCount = 5 //set as per need 
         self.view.addSubview(self.selectionView!)
 
         self.selectionView?.translatesAutoresizingMaskIntoConstraints = false
@@ -114,19 +115,22 @@ class ARSelectionViewController: UIViewController {
     //MARK: - Dummy Data
     func setDummyData() {
 
-        var items = [ARSelectModel]()
         for music in musics {
             items.append(ARSelectModel(title: music))
         }
-
-        let chunkeditems = items.chunked(into: Int((self.selectionView?.frame.height)! / (self.selectionView?.cellDesignDefaults.rowHeight)!))
-        for insa in chunkeditems {
-            let maxHeight = (insa.map { $0.width }.max() ?? width/2) + ARSelectableCell.CELL_EXTRA_SPACE
-            insa.forEach {$0.width = maxHeight }
+        
+        if let selectionView = selectionView {
+            let chunkeditems = items.chunked(into: Int((selectionView.frame.height) / (selectionView.cellDesignDefaults.rowHeight)))
+            for item in chunkeditems {
+                let maxWidth = (item.map { $0.width }.max() ?? width/2) + ARSelectableCell.CELL_EXTRA_SPACE
+                item.forEach { $0.updateWidth(maxWidth) }
+            }
         }
+        
+        self.selectionView?.cellDesignDefaults = ARCellDesignDefaults()
 
-        DispatchQueue.main.async {
-            self.selectionView?.items = items
+        DispatchQueue.main.async { [weak self] in
+            self?.selectionView?.configureItems(self?.items ?? [])
         }
     }
 

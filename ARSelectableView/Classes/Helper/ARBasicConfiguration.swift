@@ -31,13 +31,13 @@ public struct ARCollectionLayoutDefaults {
 // CollectionView cell defaults
 public struct ARCellDesignDefaults {
 
-    public var selectedButtonColor : UIColor = .black
-    public var defaultButtonColor : UIColor = .black
-    public var selectedTitleColor : UIColor = .black
-    public var defaultTitleColor : UIColor = .black
-    public var selectedCellBGColor : UIColor = .white
-    public var defaultCellBGColor : UIColor = .white
-    public var rowHeight : CGFloat = 35
-    public var isShowButton : Bool = true
-    public var cornerRadius : CGFloat = 0
+    public var selectedSelectionColor: UIColor = .black
+    public var defaultSelectionColor: UIColor = .black
+    public var selectedTitleColor: UIColor = .black
+    public var defaultTitleColor: UIColor = .black
+    public var selectedCellBGColor: UIColor = .white
+    public var defaultCellBGColor: UIColor = .white
+    public var rowHeight: CGFloat = 35
+    public var isShowButton: Bool = true
+    public var cornerRadius: CGFloat = 0
 }

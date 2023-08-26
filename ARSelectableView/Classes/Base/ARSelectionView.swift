@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol ARSelectionViewDelegate: AnyObject {
     func selectionMaxLimitReached( _ selectionView: ARSelectionView)
 }
@@ -18,6 +17,7 @@ public final class ARSelectionView: UIView {
     // MARK: - Declared Variables
     public static let DEFAULT_LINE_SPACING: CGFloat = 0
     public static let DEFAULT_INTERITEM_SPACING : CGFloat = 0
+    
     weak var delegate: ARSelectionViewDelegate?
 
     private var reseource: (cell: ARSelectableCell?, identifier: String)?
@@ -27,45 +27,46 @@ public final class ARSelectionView: UIView {
 
     var options: ARCollectionLayoutDefaults = ARCollectionLayoutDefaults() {
         didSet{
-            tagLayout.sectionInset = self.options.sectionInset
+            tagLayout.sectionInset = options.sectionInset
             tagLayout.minimumInteritemSpacing = options.interitemSpacing
             tagLayout.minimumLineSpacing = options.lineSpacing
             tagLayout.scrollDirection = options.scrollDirection
             if selectionType == .tags && options.scrollDirection != .horizontal {
-                tagLayout.align = self.alignment == .right ? .right : .left
+                tagLayout.align = alignment == .right ? .right : .left
             }
             else {
                 tagLayout.align = .none
             }
-            self.collectionView.collectionViewLayout = tagLayout
-            self.collectionView.reloadData()
+            collectionView.collectionViewLayout = tagLayout
+            collectionView.reloadData()
         }
     }
 
-    var alignment: ARSelectionAlignment? = .left {
+    var alignment: ARSelectionAlignment = .left {
         didSet {
             if selectionType == .tags && options.scrollDirection != .horizontal {
-                tagLayout.align = self.alignment == .right ? .right : .left
+                tagLayout.align = alignment == .right ? .right : .left
             }
             else {
                 tagLayout.align = .none
             }
-            self.collectionView.reloadData()
+            collectionView.reloadData()
         }
     }
 
     var selectionType : ARSelectionType? {
         didSet {
-
-            if selectionType == .tags && options.scrollDirection != .horizontal {
-                tagLayout.align = self.alignment == .right ? .right : .left
+            if let selectionType = selectionType {
+                if selectionType == .tags && options.scrollDirection != .horizontal {
+                    tagLayout.align = alignment == .right ? .right : .left
+                }
+                else {
+                    tagLayout.align = .none
+                }
+                collectionView.collectionViewLayout = tagLayout
+                items.forEach { $0.updateSelectionType( selectionType ) }
+                collectionView.reloadData()
             }
-            else {
-                tagLayout.align = .none
-            }
-            self.collectionView.collectionViewLayout = tagLayout
-            self.items.forEach { $0.selectionType = self.selectionType }
-            self.collectionView.reloadData()
         }
     }
 
@@ -79,39 +80,41 @@ public final class ARSelectionView: UIView {
         return cv
     }()
 
-    var items: [ARSelectModel] = [] {
+    private var items: [ARSelectModel] = [] {
         didSet {
-            self.items.forEach { $0.selectionType = self.selectionType }
-            self.collectionView.reloadData()
-            self.layoutIfNeeded()
+            if let selectionType = selectionType {
+                items.forEach { $0.updateSelectionType( selectionType ) }
+            }
+            collectionView.reloadData()
+            layoutIfNeeded()
         }
     }
 
     // MARK: - Init Methods
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addViews()
+        addViews()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.addViews()
+        addViews()
         fatalError("init(coder:) has not been implemented")
     }
 
     fileprivate func addViews() {
-        self.setupCollectionView()
+        setupCollectionView()
     }
 
     // MARK: - Hepler Methods
-    func setupCollectionView() {
+    private func setupCollectionView() {
 
-        self.addSubview(collectionView)
+        addSubview(collectionView)
         collectionView.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
 
-        self.reseource = (cell: ARSelectableCell(), String(describing: ARSelectableCell.self))
+        reseource = (cell: ARSelectableCell(), String(describing: ARSelectableCell.self))
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([collectionView.topAnchor.constraint(equalTo: topAnchor),
                                      collectionView.leftAnchor.constraint(equalTo: leftAnchor),
@@ -122,27 +125,33 @@ public final class ARSelectionView: UIView {
     fileprivate func updateSelection(_ selectItem: ARSelectModel) {
 
         let status = selectItem.isSelected
-        if self.selectionType == .radio {
-            self.items.filter { $0.isSelected == true }.forEach { ($0).isSelected = false }
-            selectItem.isSelected = !status
+        if selectionType == .radio {
+            items.forEach { ($0).setSelected() }
+            selectItem.setSelected(!status)
             collectionView.reloadData()
         }
         else {
-            if let maxCount = self.maxSelectCount, !selectItem.isSelected {
-                let count = self.items.filter { $0.isSelected == true }.count
+            if let maxCount = maxSelectCount, !selectItem.isSelected {
+                let count = items.filter { $0.isSelected == true }.count
                 if count < maxCount {
-                    selectItem.isSelected.toggle()
+                    selectItem.toggleSelection()
                     collectionView.reloadData()
+                } else {
+                    delegate?.selectionMaxLimitReached(self)
                 }
-                else {
-                    self.delegate?.selectionMaxLimitReached(self)
-                }
-            }
-            else{
-                selectItem.isSelected.toggle()
+            } else {
+                selectItem.toggleSelection()
                 collectionView.reloadData()
             }
         }
+    }
+    
+    func configureItems(_ items: [ARSelectModel] ) {
+        self.items = items
+    }
+    
+    func resetSelection() {
+        items.forEach { $0.setSelected() }
     }
 }
 
@@ -150,16 +159,14 @@ public final class ARSelectionView: UIView {
 extension ARSelectionView: UICollectionViewDelegate, UICollectionViewDataSource {
 
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.items.count
+        items.count
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         if let cell = collectionView.dequeueCell(ARSelectableCell.self, indexpath: indexPath) {
-
-            cell.delegate = self
-            cell.alignment = self.alignment ?? .left
-            cell.configeCell(self.items[indexPath.row], designOptions: self.cellDesignDefaults)
+            cell.alignment = alignment
+            cell.configeCell(items[indexPath.row], designOptions: cellDesignDefaults)
             cell.layoutIfNeeded()
             return cell
         }
@@ -167,8 +174,7 @@ extension ARSelectionView: UICollectionViewDelegate, UICollectionViewDataSource 
     }
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        self.updateSelection(self.items[indexPath.row])
+        updateSelection(items[indexPath.row])
     }
 }
 
@@ -177,27 +183,17 @@ extension ARSelectionView: UICollectionViewDelegateFlowLayout {
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        if self.selectionType == .tags {
+        if selectionType == .tags {
             guard let cell = reseource?.cell else { return .zero }
-            cell.configeCell(self.items[indexPath.row], designOptions: self.cellDesignDefaults)
+            cell.configeCell(items[indexPath.row], designOptions: cellDesignDefaults)
             let size = cell.fittingSize
-            return CGSize(width: size.width, height: self.cellDesignDefaults.rowHeight)
-        }
-        else {
-            if self.options.scrollDirection == .horizontal {
-                return CGSize(width: self.items[indexPath.row].width, height: self.cellDesignDefaults.rowHeight)
-            }
-            else {
-                return CGSize(width: self.frame.width, height: self.cellDesignDefaults.rowHeight)
+            return CGSize(width: size.width, height: cellDesignDefaults.rowHeight)
+        } else {
+            if options.scrollDirection == .horizontal {
+                return CGSize(width: items[indexPath.row].width, height: cellDesignDefaults.rowHeight)
+            } else {
+                return CGSize(width: frame.width, height: cellDesignDefaults.rowHeight)
             }
         }
-    }
-}
-
-//MARK:- ARSelectionDelegate
-extension ARSelectionView: ARSelectionDelegate {
-
-    func ARSelectionAction(_ selectItem: ARSelectModel) {
-        self.updateSelection(selectItem)
     }
 }

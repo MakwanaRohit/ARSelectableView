@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ARSelectableView"
-  s.version      = "1.2.0"
+  s.version      = "1.2.1"
   s.summary      = "Selection type in Swift"
   s.description  = <<-DESC
       `ARSelectableView` is provide selection type like : Radio, Checkbox, Tags

@@ -8,44 +8,39 @@
 
 import UIKit
 
-protocol ARSelectionDelegate: AnyObject {
-    func ARSelectionAction(_ selectItem: ARSelectModel)
-}
-
-class ARSelectableCell: UICollectionViewCell {
+final class ARSelectableCell: UICollectionViewCell {
 
     // MARK: - Declared Variables
     var fittingSize: CGSize {
-        return self.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        return systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     }
 
     static let CELL_EXTRA_SPACE: CGFloat = 55
     static let titleFont = UIFont.systemFont(ofSize : 15)
     fileprivate var selectItem: ARSelectModel?
-    weak var delegate :ARSelectionDelegate?
 
     var alignment: ARSelectionAlignment = ARSelectionAlignment.left {
         didSet {
-            self.selectButton.removeFromSuperview()
-            self.titleLabel.removeFromSuperview()
+            selectButton.removeFromSuperview()
+        titleLabel.removeFromSuperview()
 
             if alignment == .right {
-                self.stackView.addArrangedSubview(self.titleLabel)
-                self.stackView.addArrangedSubview(self.selectButton)
+                stackView.addArrangedSubview(titleLabel)
+                stackView.addArrangedSubview(selectButton)
             }
             else {
-                self.stackView.addArrangedSubview(self.selectButton)
-                self.stackView.addArrangedSubview(self.titleLabel)
+                stackView.addArrangedSubview(selectButton)
+                stackView.addArrangedSubview(titleLabel)
             }
-            self.stackView.setNeedsDisplay()
-            self.stackView.layoutIfNeeded()
+            stackView.setNeedsDisplay()
+            stackView.layoutIfNeeded()
         }
     }
 
     fileprivate let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 10
+        stackView.spacing = 8
         stackView.alignment = .center
         stackView.axis = .horizontal
         stackView.backgroundColor = .white
@@ -56,6 +51,7 @@ class ARSelectableCell: UICollectionViewCell {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.backgroundColor = .clear
+        btn.isUserInteractionEnabled = false
         return btn
     }()
 
@@ -83,27 +79,22 @@ class ARSelectableCell: UICollectionViewCell {
     // MARK: - Helper Variables
     fileprivate func addViews() {
 
-        self.selectButton.removeFromSuperview()
-        self.titleLabel.removeFromSuperview()
+        selectButton.removeFromSuperview()
+        titleLabel.removeFromSuperview()
+        
+        addSubview(stackView)
+        
+		stackView.backgroundColor = .clear
+        stackView.addArrangedSubview(selectButton)
+        stackView.addArrangedSubview(titleLabel)
 
-        self.addSubview(self.stackView)
-		self.stackView.backgroundColor = .clear
-        self.stackView.addArrangedSubview(self.selectButton)
-        self.stackView.addArrangedSubview(self.titleLabel)
+        NSLayoutConstraint.activate([selectButton.heightAnchor.constraint(equalToConstant: 25),
+                                     selectButton.widthAnchor.constraint(equalToConstant: 25)])
 
-        self.selectButton.addTarget(self, action: #selector(self.selectButtonAction(_:)), for: .touchUpInside)
-        NSLayoutConstraint.activate([self.selectButton.heightAnchor.constraint(equalToConstant: 25),
-                                     self.selectButton.widthAnchor.constraint(equalToConstant: 25)])
-
-        NSLayoutConstraint.activate([self.stackView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-                                     self.stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
-                                     self.stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-                                     self.stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10)])
-    }
-
-    // MARK: - UIButton Action
-    @objc func selectButtonAction(_ button: UIButton) {
-        self.delegate?.ARSelectionAction(self.selectItem!)
+        NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+                                     stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
+                                     stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
+                                     stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10)])
     }
 
     // MARK: - Confige Cell
@@ -114,15 +105,16 @@ class ARSelectableCell: UICollectionViewCell {
         if let select = selectItem, let options = designOptions {
 
             self.selectItem = selectItem
-            self.titleLabel.text = select.title
-            self.titleLabel.textColor = select.isSelected ? options.selectedTitleColor : options.defaultTitleColor
-            self.backgroundColor = select.isSelected ? options.selectedCellBGColor : options.defaultCellBGColor
-            self.layer.cornerRadius = options.cornerRadius
-
-            self.selectButton.isHidden = !options.isShowButton
-            self.selectButton.isSelected = select.isSelected
-            self.selectButton.setTintImage(select.isSelected ? select.selectionType!.selectedImage : select.selectionType!.defaultImage,
-                                           tintColor: select.isSelected ? options.selectedButtonColor : options.defaultButtonColor,
+            titleLabel.text = select.title
+            titleLabel.textColor = select.isSelected ? options.selectedTitleColor : options.defaultTitleColor
+            
+            backgroundColor = select.isSelected ? options.selectedCellBGColor : options.defaultCellBGColor
+            layer.cornerRadius = options.cornerRadius
+            
+            selectButton.isHidden = !options.isShowButton
+            selectButton.isSelected = select.isSelected
+            selectButton.setTintImage(select.isSelected ? select.selectionType.selectedImage : select.selectionType.defaultImage,
+                                           tintColor: select.isSelected ? options.selectedSelectionColor : options.defaultSelectionColor,
                                            state: select.isSelected ? .selected: .normal)
         }
     }
